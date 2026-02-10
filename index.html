@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <style>
-        /* Variables de diseño corporativo - Nueva paleta de colores */
         :root {
-            --primary-color: #8BC34A; /* Verde manzana - INNOVACIÓN */
+            --primary-color: #8BC34A;
             --primary-dark: #689F38;
             --primary-light: #DCEDC8;
-            --secondary-color: #000000; /* Negro - FIRMEZA */
+            --secondary-color: #000000;
             --secondary-light: #f5f5f5;
-            --accent-color: #ffffff; /* Blanco - CONFIANZA */
+            --accent-color: #ffffff;
             --success-color: #4CAF50;
             --success-light: #d1fae5;
             --warning-color: #FF9800;
@@ -46,10 +45,8 @@
             --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Fuente Avenir Next o similar */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap');
         
-        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
@@ -67,7 +64,6 @@
             font-size: 16px;
         }
 
-        /* Ajustes de tamaño de fuente responsivo */
         @media (max-width: 768px) {
             body {
                 font-size: 14px;
@@ -92,7 +88,6 @@
             z-index: 1000;
         }
 
-        /* Contenedor principal */
         .app-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -100,7 +95,6 @@
             z-index: 1;
         }
 
-        /* Header corporativo */
         .app-header {
             text-align: center;
             margin-bottom: 40px;
@@ -123,21 +117,52 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
+        .header-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .header-logo {
+            max-width: 200px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .header-logo-container img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
         .logo-text {
             text-align: center;
         }
 
         .logo-text h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--secondary-color);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .logo-text p {
             color: var(--gray-600);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             line-height: 1.6;
         }
 
@@ -153,7 +178,6 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        /* Sistema de fases */
         .phase-system {
             display: flex;
             background: var(--white);
@@ -165,13 +189,14 @@
             border: 2px solid var(--secondary-color);
         }
 
-        /* Navegación lateral de fases */
         .phase-nav {
             width: 320px;
             background: linear-gradient(180deg, var(--secondary-color) 0%, #333333 100%);
             padding: 40px 30px;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
         }
 
         .phase-nav::before {
@@ -188,7 +213,8 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-top: 30px;
+            margin-top: 0;
+            flex: 1;
         }
 
         .phase-item {
@@ -275,9 +301,9 @@
         }
 
         .phase-progress {
-            margin-top: 40px;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
         }
 
         .progress-label {
@@ -320,7 +346,6 @@
             100% { transform: translateX(100%); }
         }
 
-        /* Contenido de las fases */
         .phase-content {
             flex: 1;
             padding: 50px;
@@ -391,10 +416,24 @@
             max-width: 700px;
         }
 
-        /* Home Page - Fase 0 */
         .home-content {
             text-align: center;
             padding: 40px;
+        }
+
+        .home-logo-container {
+            margin-bottom: 40px;
+        }
+
+        .home-logo {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .home-logo img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
         .home-title {
@@ -412,12 +451,17 @@
             font-weight: 600;
         }
 
+        .home-action {
+            margin: 40px 0;
+            text-align: center;
+        }
+
         .home-description {
             font-size: 1.2rem;
             color: var(--gray-700);
             line-height: 1.8;
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto;
             text-align: center;
             padding: 30px;
             background: var(--primary-light);
@@ -463,7 +507,6 @@
             text-align: center;
         }
 
-        /* Formularios estilizados */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -525,7 +568,6 @@
             color: var(--gray-400);
         }
 
-        /* Elementos dinámicos */
         .dynamic-section {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
@@ -559,7 +601,6 @@
             transform: translateY(-2px);
         }
 
-        /* Select2 personalizado */
         .select2-container {
             width: 100% !important;
         }
@@ -583,7 +624,6 @@
             color: var(--gray-800) !important;
         }
 
-        /* Tarjetas de opciones */
         .option-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -641,7 +681,6 @@
             transform: scale(1.1);
         }
 
-        /* Botones corporativos */
         .btn {
             padding: 16px 32px;
             border: none;
@@ -726,7 +765,6 @@
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
-        /* Navegación entre fases */
         .phase-navigation {
             display: flex;
             justify-content: space-between;
@@ -747,7 +785,6 @@
             font-size: 1.4rem;
         }
 
-        /* Panel de éxito */
         .success-panel {
             display: none;
             text-align: center;
@@ -810,7 +847,6 @@
             flex-wrap: wrap;
         }
 
-        /* Mensajes flotantes */
         .message-container {
             position: fixed;
             top: 30px;
@@ -855,7 +891,6 @@
             border-left: 4px solid var(--warning-color);
         }
 
-        /* Overlay de carga */
         .loading-overlay {
             display: none;
             position: fixed;
@@ -888,7 +923,6 @@
             letter-spacing: 1px;
         }
 
-        /* Logo en botón de implementar */
         .btn-with-logo {
             position: relative;
             padding-left: 70px;
@@ -915,7 +949,6 @@
             object-fit: contain;
         }
 
-        /* Aceptación automática */
         .auto-acceptance {
             background: var(--primary-light);
             padding: 25px;
@@ -935,7 +968,6 @@
             color: var(--secondary-color);
         }
 
-        /* Responsive */
         @media (max-width: 1200px) {
             .phase-system {
                 flex-direction: column;
@@ -969,6 +1001,16 @@
             
             .app-header {
                 padding: 30px 20px;
+            }
+            
+            .header-logo-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .header-logo {
+                max-width: 150px;
             }
             
             .logo-text h1 {
@@ -1045,7 +1087,6 @@
             }
         }
 
-        /* Mejoras visuales */
         .floating-element {
             animation: float 3s ease-in-out infinite;
         }
@@ -1055,7 +1096,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Contadores de caracteres */
         .char-counter {
             text-align: right;
             font-size: 0.85rem;
@@ -1071,7 +1111,6 @@
             color: var(--danger-color);
         }
 
-        /* Vista previa */
         .preview-container {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
@@ -1125,7 +1164,6 @@
             word-break: break-word;
         }
 
-        /* Firma digital */
         .digital-signature {
             text-align: center;
             margin-top: 40px;
@@ -1141,7 +1179,6 @@
             margin: 10px 0;
         }
 
-        /* Efectos de partículas */
         .particles {
             position: fixed;
             top: 0;
@@ -1159,7 +1196,6 @@
             opacity: 0.1;
         }
         
-        /* Chip para beneficios personalizados */
         .chip {
             display: inline-flex;
             align-items: center;
@@ -1183,19 +1219,42 @@
             gap: 10px;
             margin-top: 10px;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .reservas-detalle {
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--warning-color);
+        }
     </style>
 </head>
 <body>
-    <!-- Partículas de fondo -->
     <div class="particles" id="particles"></div>
 
-    <!-- Contenedor principal -->
     <div class="app-container">
-        <!-- Header corporativo -->
         <header class="app-header">
-            <div class="logo-text">
-                <h1>Universo.IA</h1>
-                <p>Sistema de Configuración Inteligente para Restaurantes</p>
+            <div class="header-logo-container">
+                <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" 
+                     alt="Logo Universo.IA" class="header-logo">
+                <div class="logo-text">
+                    <p>Sistema de Configuración Inteligente para Restaurantes</p>
+                </div>
             </div>
             <p class="header-subtitle">
                 Configura tu asistente de IA empresarial en simples pasos. 
@@ -1203,12 +1262,9 @@
             </p>
         </header>
 
-        <!-- Sistema de fases -->
         <main class="phase-system">
-            <!-- Navegación lateral -->
             <nav class="phase-nav">
                 <div class="phase-list" id="phaseList">
-                    <!-- Fase 0: Home -->
                     <div class="phase-item active" data-phase="0">
                         <div class="phase-number"><i class="fas fa-home"></i></div>
                         <div class="phase-info">
@@ -1285,13 +1341,24 @@
                 </div>
             </nav>
 
-            <!-- Contenido de las fases -->
             <section class="phase-content">
-                <!-- Fase 0: Home -->
                 <div class="phase-wrapper active" data-phase="0">
                     <div class="home-content">
+                        <div class="home-logo-container">
+                            <div class="home-logo">
+                                <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" 
+                                     alt="Logo Universo.IA Completo">
+                            </div>
+                        </div>
+                        
                         <h1 class="home-title">Universo.IA</h1>
                         <h2 class="home-subtitle">Inteligencia Artificial para Restaurantes</h2>
+                        
+                        <div class="home-action">
+                            <button class="btn btn-primary" onclick="nextPhase()">
+                                <i class="fas fa-rocket"></i> Comenzar Configuración
+                            </button>
+                        </div>
                         
                         <div class="home-description">
                             <p><strong>Universo.IA</strong> es una empresa que desarrolla inteligencia artificial para restaurantes, ayudándolos a recibir pedidos, gestionar domicilios y mejorar su atención al cliente.</p>
@@ -1317,16 +1384,9 @@
                                 <p>Mejora la eficiencia en la atención, reduciendo tiempos de espera y aumentando la satisfacción</p>
                             </div>
                         </div>
-                        
-                        <div class="start-button-container">
-                            <button class="btn btn-primary" onclick="nextPhase()">
-                                <i class="fas fa-rocket"></i> Comenzar Configuración
-                            </button>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Fase 1: Perfil Empresarial -->
                 <div class="phase-wrapper" data-phase="1">
                     <div class="phase-header">
                         <h2><i class="fas fa-building"></i> Perfil Empresarial</h2>
@@ -1351,7 +1411,7 @@
                         
                         <div class="form-group">
                             <label class="form-label" for="emailContacto">
-                                <i class="fas fa-envelope"></i> Email Corporativo
+                                <i class="fas fa-envelope"></i> EMAIL
                             </label>
                             <input type="email" id="emailContacto" name="emailContacto" 
                                    class="form-control" required 
@@ -1405,7 +1465,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 2: Ubicaciones Comerciales -->
                 <div class="phase-wrapper" data-phase="2">
                     <div class="phase-header">
                         <h2><i class="fas fa-map-marked-alt"></i> Ubicaciones Comerciales</h2>
@@ -1443,7 +1502,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 3: Gestión de Productos -->
                 <div class="phase-wrapper" data-phase="3">
                     <div class="phase-header">
                         <h2><i class="fas fa-boxes"></i> Gestión de Productos</h2>
@@ -1467,12 +1525,16 @@
                     
                     <div class="dynamic-section" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-color: #0ea5e9;">
                         <h3 style="color: #0ea5e9; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-money-bill-wave"></i> Servicios con Valor Agregado
+                            <i class="fas fa-money-bill-wave"></i> Adicionales con pago
                         </h3>
+                        <p style="margin-bottom: 20px; color: var(--gray-600);">
+                            Lista todos los adicionales que ofreces con su respectivo precio. 
+                            Ej: Tartara, pollo desmechado, porción de papas, etc. Agrega todos los adicionales que tengas.
+                        </p>
                         
                         <div id="adicionalesCobroContainer">
                             <div class="dynamic-item">
-                                <input type="text" placeholder="Nombre del servicio adicional" 
+                                <input type="text" placeholder="Nombre del adicional (Ej: Tartara)" 
                                        class="form-control" name="adicionalCobroNombre[]" required>
                                 <div style="display: flex; align-items: center; gap: 10px;">
                                     <span style="font-weight: bold; color: #0e9f6e; font-size: 1.2rem;">$</span>
@@ -1487,87 +1549,40 @@
                         
                         <div style="text-align: center; margin-top: 20px;">
                             <button type="button" class="btn btn-add" onclick="agregarAdicionalCobro()">
-                                <i class="fas fa-plus"></i> Agregar Servicio
+                                <i class="fas fa-plus"></i> Agregar Adicional con Pago
                             </button>
                         </div>
                     </div>
                     
                     <div class="dynamic-section" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #0e9f6e;">
                         <h3 style="color: #0e9f6e; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-gift"></i> Beneficios Complementarios
+                            <i class="fas fa-gift"></i> Adicionales Gratuitos
                         </h3>
+                        <p style="margin-bottom: 20px; color: var(--gray-600);">
+                            Detalla qué tipo de adicionales gratuitos ofreces. Ej: Salsas especiales, pan extra, etc.
+                        </p>
                         
-                        <div class="option-grid">
-                            <label class="option-card">
-                                <input type="checkbox" name="adicionalesGratis[]" value="Servilletas">
-                                <div class="option-content">
-                                    <i class="fas fa-hand-paper"></i>
-                                    <span>Servilletas</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="checkbox" name="adicionalesGratis[]" value="Cubiertos">
-                                <div class="option-content">
-                                    <i class="fas fa-utensils"></i>
-                                    <span>Cubiertos</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="checkbox" name="adicionalesGratis[]" value="Salsas">
-                                <div class="option-content">
-                                    <i class="fas fa-wine-bottle"></i>
-                                    <span>Salsas Especiales</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="checkbox" name="adicionalesGratis[]" value="Condimentos">
-                                <div class="option-content">
-                                    <i class="fas fa-mortar-pestle"></i>
-                                    <span>Condimentos</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="checkbox" name="adicionalesGratis[]" value="Guantes">
-                                <div class="option-content">
-                                    <i class="fas fa-handshake"></i>
-                                    <span>Elementos de Protección</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="checkbox" id="otrosAdicionalesCheck" onchange="toggleOtrosAdicionales()">
-                                <div class="option-content">
-                                    <i class="fas fa-plus-circle"></i>
-                                    <span>Personalizar</span>
-                                </div>
-                            </label>
-                        </div>
-                        
-                        <div id="otrosAdicionalesContainer" style="display: none;">
-                            <div class="form-group" style="margin-top: 20px;">
-                                <label class="form-label">
-                                    <i class="fas fa-edit"></i> Beneficios Personalizados
-                                </label>
-                                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                                    <input type="text" id="nuevoAdicionalGratis" 
-                                           class="form-control" placeholder="Ej: Palillos, Toallas húmedas, etc.">
-                                    <button type="button" class="btn btn-secondary" onclick="agregarOtroAdicional()">
-                                        <i class="fas fa-plus"></i> Agregar
+                        <div class="form-group">
+                            <div id="adicionalesGratuitosContainer">
+                                <div class="dynamic-item">
+                                    <textarea class="form-control" name="adicionalesGratuitos[]" 
+                                              placeholder="Describe un adicional gratuito (Ej: Salsa de ajo, limones extra, servilletas adicionales)" 
+                                              rows="2"></textarea>
+                                    <button type="button" class="btn btn-danger" onclick="eliminarAdicionalGratuito(this)">
+                                        <i class="fas fa-times"></i> Eliminar
                                     </button>
                                 </div>
-                                <div class="chip-container" id="otrosAdicionalesChips">
-                                    <!-- Chips generados dinámicamente -->
-                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button type="button" class="btn btn-add" onclick="agregarAdicionalGratuito()">
+                                    <i class="fas fa-plus"></i> Agregar Adicional Gratuito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Fase 4: Personalización -->
                 <div class="phase-wrapper" data-phase="4">
                     <div class="phase-header">
                         <h2><i class="fas fa-sliders-h"></i> Personalización Avanzada</h2>
@@ -1577,151 +1592,53 @@
                         </p>
                     </div>
                     
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label">
-                                <i class="fas fa-minus-circle"></i> Modificación de Ingredientes
-                            </label>
-                            <div class="option-grid">
-                                <label class="option-card">
-                                    <input type="radio" name="quitarIngredientes" value="Sí, sin costo" required>
-                                    <div class="option-content">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Sí, sin costo adicional</span>
-                                    </div>
-                                </label>
-                                
-                                <label class="option-card">
-                                    <input type="radio" name="quitarIngredientes" value="Sí, con costo">
-                                    <div class="option-content">
-                                        <i class="fas fa-dollar-sign"></i>
-                                        <span>Sí, con ajuste de precio</span>
-                                    </div>
-                                </label>
-                                
-                                <label class="option-card">
-                                    <input type="radio" name="quitarIngredientes" value="No">
-                                    <div class="option-content">
-                                        <i class="fas fa-times-circle"></i>
-                                        <span>No permitido</span>
-                                    </div>
-                                </label>
-                                
-                                <label class="option-card">
-                                    <input type="radio" name="quitarIngredientes" value="Depende">
-                                    <div class="option-content">
-                                        <i class="fas fa-question-circle"></i>
-                                        <span>Depende del producto</span>
-                                    </div>
-                                </label>
-                            </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modificacionIngredientes">
+                            <i class="fas fa-edit"></i> Modificación de ingredientes
+                        </label>
+                        <textarea id="modificacionIngredientes" name="modificacionIngredientes" 
+                                  class="form-control" rows="4" 
+                                  placeholder="Escribe cuáles de tus productos pueden tener modificaciones, especifica cuáles. Ej: Hamburguesa sin pan, con lechuga. O hamburguesa sin cebolla."></textarea>
+                        <div class="form-hint">
+                            <i class="fas fa-info-circle"></i> Describe claramente qué modificaciones permites en tus productos
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                <i class="fas fa-cut"></i> Servicio Dividido
-                            </label>
-                            <div class="option-grid">
-                                <label class="option-card">
-                                    <input type="radio" name="productosDivididos" value="Sí" required>
-                                    <div class="option-content">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Disponible</span>
-                                    </div>
-                                </label>
-                                
-                                <label class="option-card">
-                                    <input type="radio" name="productosDivididos" value="No">
-                                    <div class="option-content">
-                                        <i class="fas fa-times-circle"></i>
-                                        <span>No disponible</span>
-                                    </div>
-                                </label>
-                                
-                                <label class="option-card">
-                                    <input type="radio" name="productosDivididos" value="Consultar">
-                                    <div class="option-content">
-                                        <i class="fas fa-question-circle"></i>
-                                        <span>Consultar disponibilidad</span>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
+                        <div class="char-counter" id="modificacionIngredientesCounter">0/1000 caracteres</div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="politicasPersonalizacion">
-                            <i class="fas fa-file-contract"></i> Políticas de Personalización
+                        <label class="form-label" for="quitarIngredientesDetalle">
+                            <i class="fas fa-minus-circle"></i> ¿Cuáles de tus productos permiten quitarle ingredientes?
                         </label>
-                        <textarea id="politicasPersonalizacion" name="politicasPersonalizacion" 
+                        <textarea id="quitarIngredientesDetalle" name="quitarIngredientesDetalle" 
                                   class="form-control" rows="4" 
-                                  placeholder="Reglas específicas sobre modificaciones, sustituciones y personalizaciones..."></textarea>
-                        <div class="char-counter" id="politicasPersonalizacionCounter">0/1000 caracteres</div>
+                                  placeholder="Especifica muy bien qué productos permiten quitar ingredientes y cuáles. Ej: Bandeja paisa sin frijoles. Ensalada César sin crutones. Pizza sin aceitunas."></textarea>
+                        <div class="form-hint">
+                            <i class="fas fa-info-circle"></i> Es importante especificar esto muy bien para evitar malentendidos con los clientes
+                        </div>
+                        <div class="char-counter" id="quitarIngredientesDetalleCounter">0/1000 caracteres</div>
                     </div>
                 </div>
 
-                <!-- Fase 5: Servicios Logísticos -->
                 <div class="phase-wrapper" data-phase="5">
                     <div class="phase-header">
                         <h2><i class="fas fa-shipping-fast"></i> Servicios Logísticos</h2>
                         <p class="phase-description">
-                            Configura tu sistema de entregas a domicilio y define los parámetros 
-                            de cobertura, costos y tiempos de entrega.
+                            Por favor, proporciona un enlace (por ejemplo, a un documento de Google, una imagen o una página web) donde se pueda consultar el listado completo de barrios o zonas a los que realizas entregas, junto con el valor del domicilio para cada uno. Esto asegurará que la IA comunique los costos exactos a tus clientes.
                         </p>
                     </div>
                     
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="domicilioPorKm">
-                                <i class="fas fa-road"></i> Tarifa por Distancia
-                            </label>
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <span style="font-weight: bold; font-size: 1.5rem; color: #0e9f6e;">$</span>
-                                <input type="number" id="domicilioPorKm" name="domicilioPorKm" 
-                                       class="form-control" step="0.01" placeholder="0.00" required
-                                       style="font-size: 1.5rem; padding: 20px;" min="0">
-                                <span style="color: var(--gray-600); font-size: 1.2rem;">por kilómetro</span>
-                            </div>
-                            <div class="form-hint">
-                                <i class="fas fa-info-circle"></i> Costo adicional basado en la distancia recorrida
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="costoMinimo">
-                                <i class="fas fa-tag"></i> Tarifa Mínima
-                            </label>
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <span style="font-weight: bold; font-size: 1.2rem; color: #0e9f6e;">$</span>
-                                <input type="number" id="costoMinimo" name="costoMinimo" 
-                                       class="form-control" step="0.01" placeholder="0.00" min="0">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="radioCobertura">
-                                <i class="fas fa-map-marked-alt"></i> Radio de Cobertura
-                            </label>
-                            <input type="number" id="radioCobertura" name="radioCobertura" 
-                                   class="form-control" step="0.5" placeholder="5" min="0">
-                            <div class="form-hint">
-                                <i class="fas fa-info-circle"></i> Distancia máxima de envío en kilómetros
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="tiempoEntrega">
-                                <i class="fas fa-clock"></i> Tiempo Estimado
-                            </label>
-                            <input type="text" id="tiempoEntrega" name="tiempoEntrega" 
-                                   class="form-control" placeholder="30-45 minutos">
+                    <div class="form-group">
+                        <label class="form-label" for="linkTarifasBarrios">
+                            <i class="fas fa-link"></i> Enlace al listado de barrios y tarifas
+                        </label>
+                        <input type="url" id="linkTarifasBarrios" name="linkTarifasBarrios" class="form-control" required 
+                               placeholder="https://docs.google.com/document/d/... o https://miempresa.com/zonas-de-domicilio">
+                        <div class="form-hint">
+                            <i class="fas fa-info-circle"></i> Asegúrate de que el enlace sea público y accesible para todos.
                         </div>
                     </div>
                 </div>
 
-                <!-- Fase 6: Estrategias Comerciales -->
                 <div class="phase-wrapper" data-phase="6">
                     <div class="phase-header">
                         <h2><i class="fas fa-chart-line"></i> Estrategias Comerciales</h2>
@@ -1736,24 +1653,56 @@
                             <i class="fas fa-calendar-check"></i> Sistema de Reservas
                         </h3>
                         
-                        <div id="reservasSection" style="margin-top: 20px;">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label class="form-label" for="menuReservasLink">
-                                        <i class="fas fa-external-link-alt"></i> Plataforma de Reservas
-                                    </label>
-                                    <input type="url" id="menuReservasLink" name="menuReservasLink" 
-                                           class="form-control" placeholder="https://miempresa.com/reservas">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="form-label" for="politicasReservas">
-                                        <i class="fas fa-clipboard-list"></i> Políticas de Reserva
-                                    </label>
-                                    <textarea id="politicasReservas" name="politicasReservas" 
-                                              class="form-control" rows="3" 
-                                              placeholder="Políticas de cancelación, tiempo máximo de espera..."></textarea>
-                                    <div class="char-counter" id="politicasReservasCounter">0/500 caracteres</div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-calendar-check"></i> ¿Tienes sistema de reservas?
+                            </label>
+                            <select id="tieneReservas" class="form-control" onchange="toggleReservasDetalle()">
+                                <option value="no">No</option>
+                                <option value="si">Sí</option>
+                                <option value="depende">Depende</option>
+                            </select>
+                        </div>
+                        
+                        <div id="reservasDetalleContainer" style="display: none; margin-top: 20px;">
+                            <div class="form-group">
+                                <label class="form-label" for="menuReservasLink">
+                                    <i class="fas fa-external-link-alt"></i> Link o plataforma para reservas
+                                </label>
+                                <input type="url" id="menuReservasLink" name="menuReservasLink" 
+                                       class="form-control" placeholder="https://miempresa.com/reservas">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="politicasReservas">
+                                    <i class="fas fa-clipboard-list"></i> Políticas de Reserva
+                                </label>
+                                <textarea id="politicasReservas" name="politicasReservas" 
+                                          class="form-control" rows="3" 
+                                          placeholder="Políticas de cancelación, tiempo máximo de espera..."></textarea>
+                                <div class="char-counter" id="politicasReservasCounter">0/500 caracteres</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-money-bill-wave"></i> ¿La reserva tiene costo adicional?
+                                </label>
+                                <select id="reservasCosto" name="reservasCosto" class="form-control" onchange="toggleReservasCostoDetalle()">
+                                    <option value="no">No</option>
+                                    <option value="si">Sí</option>
+                                    <option value="depende">Depende (explicar)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="reservasCostoDetalleContainer" style="display: none;">
+                                <label class="form-label">
+                                    <i class="fas fa-edit"></i> Explica de qué depende el costo
+                                </label>
+                                <textarea id="reservasCostoDetalle" name="reservasCostoDetalle" 
+                                          class="form-control" rows="2" 
+                                          placeholder="Ej: Tiene costo si no se alcanza un consumo mínimo de $100.000 por mesa, o si se reserva en fechas especiales."></textarea>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i> Especifica claramente las condiciones para el costo de reserva
                                 </div>
                             </div>
                         </div>
@@ -1788,7 +1737,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 7: Revisión Final -->
                 <div class="phase-wrapper" data-phase="7">
                     <div class="phase-header">
                         <h2><i class="fas fa-clipboard-check"></i> Revisión Final</h2>
@@ -1849,7 +1797,6 @@
                     </div>
                 </div>
 
-                <!-- Panel de Éxito -->
                 <div class="success-panel" id="successPanel">
                     <div class="success-icon">
                         <i class="fas fa-check-circle"></i>
@@ -1879,7 +1826,6 @@
                     </div>
                 </div>
 
-                <!-- Navegación entre fases -->
                 <div class="phase-navigation">
                     <button id="prevPhaseBtn" class="btn btn-secondary" onclick="prevPhase()">
                         <i class="fas fa-arrow-left"></i> Fase Anterior
@@ -1904,33 +1850,29 @@
         </main>
     </div>
 
-    <!-- Contenedor de mensajes -->
     <div id="messageContainer" class="message-container"></div>
 
-    <!-- Overlay de carga -->
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-spinner"></div>
         <div class="loading-text" id="loadingText">Procesando configuración...</div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        // Configuración del sistema
         const SYSTEM = {
             SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzndMk5nZO-kGsIZM5syn47GAhZjfEoB1qnEaynt7ywTxGOWYGSepdlOTVYjuyygW5Uvw/exec',
-            currentPhase: 0, // Comienza en fase 0 (Home)
-            totalPhases: 8, // Ahora son 8 fases incluyendo Home
+            currentPhase: 0,
+            totalPhases: 8,
             puntosVentaCount: 1,
             adicionalesCobroCount: 1,
+            adicionalesGratuitosCount: 1,
             otrosAdicionales: [],
             formData: {},
             configID: null,
             isSubmitted: false
         };
 
-        // Datos de Colombia
         const COLOMBIA_DATA = {
             departamentos: {
                 "Amazonas": ["Leticia", "Puerto Nariño"],
@@ -1969,37 +1911,23 @@
             }
         };
 
-        // Inicialización
         document.addEventListener('DOMContentLoaded', function() {
             inicializarSistema();
             crearParticulas();
+            protegerLogo();
         });
 
         function inicializarSistema() {
-            // Generar ID único
             SYSTEM.configID = generarIDUnico();
-            
-            // Configurar eventos
             inicializarEventos();
-            
-            // Inicializar puntos de venta
             actualizarPuntosVenta();
-            
-            // Inicializar Select2
             inicializarSelect2();
-            
-            // Inicializar contadores
             inicializarContadores();
-            
-            // Actualizar navegación
             actualizarNavegacion();
-            
-            // Mostrar fase actual
             mostrarFaseActual();
         }
 
         function inicializarEventos() {
-            // Eventos de fases
             document.querySelectorAll('.phase-item').forEach(item => {
                 item.addEventListener('click', function() {
                     const phase = parseInt(this.dataset.phase);
@@ -2009,15 +1937,13 @@
                 });
             });
             
-            // Eventos de validación
             document.querySelectorAll('[required]').forEach(input => {
                 input.addEventListener('blur', function() {
                     validarCampo(this);
                 });
             });
             
-            // Eventos de contadores
-            const textareas = ['politicasPersonalizacion', 'politicasReservas', 'promociones', 'notasAdicionales'];
+            const textareas = ['modificacionIngredientes', 'quitarIngredientesDetalle', 'politicasReservas', 'promociones', 'notasAdicionales'];
             textareas.forEach(id => {
                 const textarea = document.getElementById(id);
                 if (textarea) {
@@ -2028,7 +1954,6 @@
                 }
             });
             
-            // Actualizar nombre en firma digital
             const nombreInput = document.getElementById('nombreComercio');
             if (nombreInput) {
                 nombreInput.addEventListener('input', function() {
@@ -2038,9 +1963,7 @@
             }
         }
 
-        // Navegación entre fases
         function nextPhase() {
-            // En la fase 0 (Home), no requiere validación
             if (SYSTEM.currentPhase > 0 && !validarFaseActual()) {
                 mostrarMensaje('Por favor, completa todos los campos requeridos', 'error');
                 return;
@@ -2050,11 +1973,8 @@
                 SYSTEM.currentPhase++;
                 mostrarFaseActual();
                 actualizarNavegacion();
-                
-                // Scroll al inicio del contenido
                 document.querySelector('.phase-content').scrollTop = 0;
                 
-                // Si es la última fase (7), generar vista previa
                 if (SYSTEM.currentPhase === SYSTEM.totalPhases - 1) {
                     generarVistaPrevia();
                 }
@@ -2066,8 +1986,6 @@
                 SYSTEM.currentPhase--;
                 mostrarFaseActual();
                 actualizarNavegacion();
-                
-                // Scroll al inicio del contenido
                 document.querySelector('.phase-content').scrollTop = 0;
             }
         }
@@ -2076,24 +1994,19 @@
             SYSTEM.currentPhase = fase;
             mostrarFaseActual();
             actualizarNavegacion();
-            
-            // Scroll al inicio del contenido
             document.querySelector('.phase-content').scrollTop = 0;
         }
 
         function mostrarFaseActual() {
-            // Ocultar todas las fases
             document.querySelectorAll('.phase-wrapper').forEach(wrapper => {
                 wrapper.classList.remove('active');
             });
             
-            // Mostrar fase actual
             const currentPhaseElement = document.querySelector(`.phase-wrapper[data-phase="${SYSTEM.currentPhase}"]`);
             if (currentPhaseElement) {
                 currentPhaseElement.classList.add('active');
             }
             
-            // Actualizar navegación lateral
             document.querySelectorAll('.phase-item').forEach(item => {
                 const phaseNumber = parseInt(item.dataset.phase);
                 item.classList.remove('active', 'completed');
@@ -2105,12 +2018,9 @@
                 }
             });
             
-            // Actualizar progreso (excluyendo fase 0 del cálculo)
             const progressPercentage = SYSTEM.currentPhase === 0 ? 0 : (SYSTEM.currentPhase / (SYSTEM.totalPhases - 1)) * 100;
             document.getElementById('progressFill').style.width = `${progressPercentage}%`;
             document.getElementById('progressPercentage').textContent = `${Math.round(progressPercentage)}%`;
-            
-            // Actualizar contador
             document.getElementById('currentPhase').textContent = SYSTEM.currentPhase;
         }
 
@@ -2119,11 +2029,9 @@
             const nextBtn = document.getElementById('nextPhaseBtn');
             const submitBtn = document.getElementById('submitConfigBtn');
             
-            // Mostrar/ocultar botones según fase
             prevBtn.style.display = SYSTEM.currentPhase === 0 ? 'none' : 'flex';
             
             if (SYSTEM.currentPhase === SYSTEM.totalPhases - 1) {
-                // Última fase
                 nextBtn.style.display = 'none';
                 submitBtn.style.display = 'flex';
             } else {
@@ -2132,7 +2040,6 @@
             }
         }
 
-        // Funciones para puntos de venta
         function actualizarPuntosVenta() {
             const numeroPuntos = parseInt(document.getElementById('numeroPuntos').value) || 1;
             const container = document.getElementById('puntosVentaContainer');
@@ -2206,7 +2113,6 @@
             
             container.appendChild(div);
             
-            // Inicializar Select2
             setTimeout(() => {
                 $(div).find('.ubicacion-select').select2({
                     placeholder: "Buscar...",
@@ -2234,7 +2140,6 @@
                 SYSTEM.puntosVentaCount--;
                 document.getElementById('numeroPuntos').value = SYSTEM.puntosVentaCount;
                 
-                // Renumerar
                 document.querySelectorAll('.dynamic-item').forEach((item, index) => {
                     const title = item.querySelector('h4');
                     if (title) {
@@ -2255,8 +2160,6 @@
                 ciudadSelect.innerHTML = '<option value="">Selecciona ciudad</option>' +
                     ciudades.map(ciudad => `<option value="${ciudad}">${ciudad}</option>`).join('');
                 ciudadSelect.disabled = false;
-                
-                // Actualizar Select2
                 $(ciudadSelect).val(null).trigger('change');
             } else {
                 ciudadSelect.innerHTML = '<option value="">Selecciona departamento primero</option>';
@@ -2265,13 +2168,12 @@
             }
         }
 
-        // Funciones para adicionales
         function agregarAdicionalCobro() {
             const container = document.getElementById('adicionalesCobroContainer');
             const div = document.createElement('div');
             div.className = 'dynamic-item';
             div.innerHTML = `
-                <input type="text" placeholder="Nombre del servicio" 
+                <input type="text" placeholder="Nombre del adicional (Ej: Tartara)" 
                        class="form-control" name="adicionalCobroNombre[]" required>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span style="font-weight: bold; color: #0e9f6e; font-size: 1.2rem;">$</span>
@@ -2284,18 +2186,42 @@
             `;
             container.appendChild(div);
             SYSTEM.adicionalesCobroCount++;
-            mostrarMensaje('Servicio agregado', 'success');
+            mostrarMensaje('Adicional con pago agregado', 'success');
         }
 
         function eliminarAdicionalCobro(button) {
             if (SYSTEM.adicionalesCobroCount > 1) {
                 button.closest('.dynamic-item').remove();
                 SYSTEM.adicionalesCobroCount--;
-                mostrarMensaje('Servicio eliminado', 'info');
+                mostrarMensaje('Adicional con pago eliminado', 'info');
             }
         }
 
-        // Funciones para sector "Otros"
+        function agregarAdicionalGratuito() {
+            const container = document.getElementById('adicionalesGratuitosContainer');
+            const div = document.createElement('div');
+            div.className = 'dynamic-item';
+            div.innerHTML = `
+                <textarea class="form-control" name="adicionalesGratuitos[]" 
+                          placeholder="Describe un adicional gratuito (Ej: Salsa de ajo, limones extra, servilletas adicionales)" 
+                          rows="2"></textarea>
+                <button type="button" class="btn btn-danger" onclick="eliminarAdicionalGratuito(this)">
+                    <i class="fas fa-times"></i> Eliminar
+                </button>
+            `;
+            container.appendChild(div);
+            SYSTEM.adicionalesGratuitosCount++;
+            mostrarMensaje('Adicional gratuito agregado', 'success');
+        }
+
+        function eliminarAdicionalGratuito(button) {
+            if (SYSTEM.adicionalesGratuitosCount > 1) {
+                button.closest('.dynamic-item').remove();
+                SYSTEM.adicionalesGratuitosCount--;
+                mostrarMensaje('Adicional gratuito eliminado', 'info');
+            }
+        }
+
         function toggleSectorOtro() {
             const sectorSelect = document.getElementById('sectorNegocio');
             const otroContainer = document.getElementById('sectorOtroContainer');
@@ -2310,66 +2236,21 @@
             }
         }
 
-        // Funciones para otros adicionales
-        function toggleOtrosAdicionales() {
-            const checkbox = document.getElementById('otrosAdicionalesCheck');
-            const container = document.getElementById('otrosAdicionalesContainer');
-            
-            if (checkbox.checked) {
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-                SYSTEM.otrosAdicionales = [];
-                actualizarChipsAdicionales();
-            }
+        function toggleReservasDetalle() {
+            const tieneReservas = document.getElementById('tieneReservas').value;
+            const detalleContainer = document.getElementById('reservasDetalleContainer');
+            detalleContainer.style.display = (tieneReservas === 'no') ? 'none' : 'block';
         }
 
-        function agregarOtroAdicional() {
-            const input = document.getElementById('nuevoAdicionalGratis');
-            const valor = input.value.trim();
-            
-            if (!valor) {
-                mostrarMensaje('Ingresa un nombre para el beneficio', 'error');
-                return;
-            }
-            
-            if (SYSTEM.otrosAdicionales.includes(valor)) {
-                mostrarMensaje('Este beneficio ya fue agregado', 'warning');
-                return;
-            }
-            
-            SYSTEM.otrosAdicionales.push(valor);
-            input.value = '';
-            actualizarChipsAdicionales();
-            mostrarMensaje(`Beneficio "${valor}" agregado`, 'success');
+        function toggleReservasCostoDetalle() {
+            const costoReserva = document.getElementById('reservasCosto').value;
+            const detalleContainer = document.getElementById('reservasCostoDetalleContainer');
+            detalleContainer.style.display = (costoReserva === 'depende') ? 'block' : 'none';
         }
 
-        function eliminarOtroAdicional(index) {
-            const eliminado = SYSTEM.otrosAdicionales.splice(index, 1)[0];
-            actualizarChipsAdicionales();
-            mostrarMensaje(`Beneficio "${eliminado}" eliminado`, 'info');
-        }
-
-        function actualizarChipsAdicionales() {
-            const container = document.getElementById('otrosAdicionalesChips');
-            container.innerHTML = '';
-            
-            SYSTEM.otrosAdicionales.forEach((adicional, index) => {
-                const chip = document.createElement('div');
-                chip.className = 'chip';
-                chip.innerHTML = `
-                    ${adicional}
-                    <i class="fas fa-times" onclick="eliminarOtroAdicional(${index})"></i>
-                `;
-                container.appendChild(chip);
-            });
-        }
-
-        // Vista previa
         function generarVistaPrevia() {
             const container = document.getElementById('previewContainer');
             
-            // Recopilar datos
             const formData = new FormData();
             const inputs = document.querySelectorAll('input, select, textarea');
             
@@ -2383,7 +2264,6 @@
                 }
             });
             
-            // Procesar datos
             const data = {};
             for (let [key, value] of formData.entries()) {
                 if (key.endsWith('[]')) {
@@ -2395,17 +2275,30 @@
                 }
             }
             
-            // Sector final
             let sectorFinal = data.sectorNegocio || '';
             if (sectorFinal === 'otros' && data.sectorOtro) {
                 sectorFinal = data.sectorOtro;
             }
             
-            // Adicionales gratuitos
-            const adicionalesGratisBase = data['adicionalesGratis[]'] || [];
-            const adicionalesGratisFinal = [...adicionalesGratisBase, ...SYSTEM.otrosAdicionales];
+            const adicionalesCobro = data.adicionalCobroNombre ? data.adicionalCobroNombre.map((nombre, i) => {
+                const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
+                return `${nombre}: $${precio}`;
+            }).join('<br>') : 'Ninguno';
             
-            // Construir HTML
+            const adicionalesGratuitos = data.adicionalesGratuitos ? data.adicionalesGratuitos.join('<br>') : 'Ninguno';
+            
+            const tieneReservas = document.getElementById('tieneReservas').value;
+            let reservasInfo = 'No tiene sistema de reservas';
+            if (tieneReservas !== 'no') {
+                reservasInfo = `Sí tiene reservas${data.menuReservasLink ? `<br>Link: ${data.menuReservasLink}` : ''}`;
+                if (data.reservasCosto) {
+                    reservasInfo += `<br>Costo: ${data.reservasCosto}`;
+                    if (data.reservasCosto === 'depende' && data.reservasCostoDetalle) {
+                        reservasInfo += `<br>Detalle: ${data.reservasCostoDetalle}`;
+                    }
+                }
+            }
+            
             let html = `
                 <div class="preview-section">
                     <h4><i class="fas fa-building"></i> Perfil Empresarial</h4>
@@ -2414,7 +2307,7 @@
                         <span class="preview-value">${data.nombreComercio || 'No especificado'}</span>
                     </div>
                     <div class="preview-item">
-                        <span class="preview-label">Email Corporativo:</span>
+                        <span class="preview-label">EMAIL:</span>
                         <span class="preview-value">${data.emailContacto || 'No especificado'}</span>
                     </div>
                     <div class="preview-item">
@@ -2455,103 +2348,43 @@
                         <span class="preview-label">Catálogo Digital:</span>
                         <span class="preview-value">${data.menuLink ? `<a href="${data.menuLink}" target="_blank" style="color: var(--primary-color);">Ver catálogo</a>` : 'No especificado'}</span>
                     </div>
-            `;
-            
-            // Servicios con valor
-            const serviciosValor = [];
-            if (data.adicionalCobroNombre && data.adicionalCobroNombre.length > 0) {
-                data.adicionalCobroNombre.forEach((nombre, i) => {
-                    if (nombre.trim()) {
-                        const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
-                        serviciosValor.push(`${nombre}: $${precio}`);
-                    }
-                });
-            }
-            
-            if (serviciosValor.length > 0) {
-                html += `
                     <div class="preview-item">
-                        <span class="preview-label">Servicios con Valor:</span>
-                        <span class="preview-value">${serviciosValor.join('<br>')}</span>
+                        <span class="preview-label">Adicionales con Pago:</span>
+                        <span class="preview-value">${adicionalesCobro}</span>
                     </div>
-                `;
-            }
-            
-            // Beneficios
-            if (adicionalesGratisFinal.length > 0) {
-                html += `
                     <div class="preview-item">
-                        <span class="preview-label">Beneficios:</span>
-                        <span class="preview-value">${adicionalesGratisFinal.join(', ')}</span>
+                        <span class="preview-label">Adicionales Gratuitos:</span>
+                        <span class="preview-value">${adicionalesGratuitos}</span>
                     </div>
-                `;
-            }
-            
-            html += `
                 </div>
                 
                 <div class="preview-section">
                     <h4><i class="fas fa-sliders-h"></i> Personalización</h4>
                     <div class="preview-item">
                         <span class="preview-label">Modificación Ingredientes:</span>
-                        <span class="preview-value">${data.quitarIngredientes || 'No especificado'}</span>
+                        <span class="preview-value">${data.modificacionIngredientes || 'No especificado'}</span>
                     </div>
                     <div class="preview-item">
-                        <span class="preview-label">Servicio Dividido:</span>
-                        <span class="preview-value">${data.productosDivididos || 'No especificado'}</span>
+                        <span class="preview-label">Quitar Ingredientes:</span>
+                        <span class="preview-value">${data.quitarIngredientesDetalle || 'No especificado'}</span>
                     </div>
                 </div>
                 
                 <div class="preview-section">
-                    <h4><i class="fas fa-shipping-fast"></i> Logística</h4>
+                    <h4><i class="fas fa-shipping-fast"></i> Servicios Logísticos</h4>
                     <div class="preview-item">
-                        <span class="preview-label">Tarifa por Km:</span>
-                        <span class="preview-value">$${data.domicilioPorKm ? parseFloat(data.domicilioPorKm).toFixed(2) : '0.00'}</span>
+                        <span class="preview-label">Link Tarifas Barrios:</span>
+                        <span class="preview-value">${data.linkTarifasBarrios ? `<a href="${data.linkTarifasBarrios}" target="_blank" style="color: var(--primary-color);">Ver tarifas</a>` : 'No especificado'}</span>
                     </div>
-            `;
-            
-            if (data.costoMinimo && parseFloat(data.costoMinimo) > 0) {
-                html += `
-                    <div class="preview-item">
-                        <span class="preview-label">Tarifa Mínima:</span>
-                        <span class="preview-value">$${parseFloat(data.costoMinimo).toFixed(2)}</span>
-                    </div>
-                `;
-            }
-            
-            if (data.radioCobertura && parseFloat(data.radioCobertura) > 0) {
-                html += `
-                    <div class="preview-item">
-                        <span class="preview-label">Cobertura:</span>
-                        <span class="preview-value">${data.radioCobertura} km</span>
-                    </div>
-                `;
-            }
-            
-            if (data.tiempoEntrega) {
-                html += `
-                    <div class="preview-item">
-                        <span class="preview-label">Tiempo Estimado:</span>
-                        <span class="preview-value">${data.tiempoEntrega}</span>
-                    </div>
-                `;
-            }
-            
-            html += `
                 </div>
                 
                 <div class="preview-section">
                     <h4><i class="fas fa-chart-line"></i> Estrategias</h4>
-            `;
-            
-            if (data.menuReservasLink) {
-                html += `
                     <div class="preview-item">
-                        <span class="preview-label">Plataforma de Reservas:</span>
-                        <span class="preview-value">${data.menuReservasLink ? `<a href="${data.menuReservasLink}" target="_blank" style="color: var(--primary-color);">Acceder</a>` : 'No especificada'}</span>
+                        <span class="preview-label">Sistema de Reservas:</span>
+                        <span class="preview-value">${reservasInfo}</span>
                     </div>
-                `;
-            }
+            `;
             
             if (data.promociones) {
                 const promocionesResumen = data.promociones.length > 100 ? data.promociones.substring(0, 100) + '...' : data.promociones;
@@ -2567,19 +2400,17 @@
             
             container.innerHTML = html;
             
-            // Guardar datos
             SYSTEM.formData = data;
-            SYSTEM.formData.adicionalesGratisFinal = adicionalesGratisFinal;
             SYSTEM.formData.sectorFinal = sectorFinal;
-            SYSTEM.formData.serviciosValor = serviciosValor;
+            SYSTEM.formData.adicionalesCobro = adicionalesCobro;
+            SYSTEM.formData.adicionalesGratuitos = adicionalesGratuitos;
+            SYSTEM.formData.reservasInfo = reservasInfo;
         }
 
-        // Envío de configuración
         async function enviarConfiguracion() {
             mostrarCarga(true, 'Guardando configuración...');
             
             try {
-                // Recopilar todos los datos del formulario
                 const formData = new FormData();
                 const inputs = document.querySelectorAll('input, select, textarea');
                 
@@ -2593,7 +2424,6 @@
                     }
                 });
                 
-                // Procesar datos para el envío
                 const data = {};
                 for (let [key, value] of formData.entries()) {
                     if (key.endsWith('[]')) {
@@ -2605,7 +2435,15 @@
                     }
                 }
                 
-                // Preparar payload para Google Sheets - CORREGIDO
+                const adicionalesCobroTexto = data.adicionalCobroNombre ? data.adicionalCobroNombre.map((nombre, i) => {
+                    const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
+                    return `${nombre}: $${precio}`;
+                }).join(', ') : '';
+                
+                const adicionalesGratuitosTexto = data.adicionalesGratuitos ? data.adicionalesGratuitos.join(', ') : '';
+                
+                const tieneReservas = document.getElementById('tieneReservas').value;
+                
                 const payload = {
                     timestamp: new Date().toISOString(),
                     fecha: new Date().toLocaleDateString('es-CO'),
@@ -2624,21 +2462,15 @@
                         return `${nombre} | ${depto} | ${ciudad} | ${direccion}`;
                     }).join(' || ') : '',
                     enlace_catalogo: data.menuLink || '',
-                    servicios_valor: data.adicionalCobroNombre ? data.adicionalCobroNombre.map((nombre, i) => {
-                        const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
-                        return `${nombre}: $${precio}`;
-                    }).join(', ') : '',
-                    beneficios_gratis: SYSTEM.otrosAdicionales.length > 0 ? 
-                        [...(data['adicionalesGratis[]'] || []), ...SYSTEM.otrosAdicionales].join(', ') : 
-                        (data['adicionalesGratis[]'] || []).join(', '),
-                    modificacion_ingredientes: data.quitarIngredientes || '',
-                    servicio_dividido: data.productosDivididos || '',
-                    politicas_personalizacion: data.politicasPersonalizacion || '',
-                    tarifa_por_km: data.domicilioPorKm || '0',
-                    tarifa_minima: data.costoMinimo || '0',
-                    radio_cobertura: data.radioCobertura || '0',
-                    tiempo_entrega: data.tiempoEntrega || '',
-                    plataforma_reservas: data.menuReservasLink || '',
+                    adicionales_con_pago: adicionalesCobroTexto,
+                    adicionales_gratuitos: adicionalesGratuitosTexto,
+                    modificacion_ingredientes: data.modificacionIngredientes || '',
+                    quitar_ingredientes_detalle: data.quitarIngredientesDetalle || '',
+                    link_tarifas_barrios: data.linkTarifasBarrios || '',
+                    tiene_reservas: tieneReservas || '',
+                    menuReservasLink: data.menuReservasLink || '',
+                    reservas_costo: data.reservasCosto || '',
+                    reservas_costo_detalle: data.reservasCostoDetalle || '',
                     politicas_reservas: data.politicasReservas || '',
                     promociones: data.promociones || '',
                     calendario_promocional: data.horarioPromociones || '',
@@ -2647,7 +2479,6 @@
                 
                 console.log('Payload a enviar:', payload);
                 
-                // Enviar a Google Sheets usando POST
                 const response = await fetch(SYSTEM.SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -2657,20 +2488,16 @@
                     body: JSON.stringify(payload)
                 });
                 
-                // Simular un tiempo de procesamiento
                 setTimeout(() => {
                     mostrarCarga(false);
                     SYSTEM.isSubmitted = true;
                     
-                    // Mostrar panel de éxito
                     document.querySelector('.phase-wrapper.active').style.display = 'none';
                     document.querySelector('.phase-navigation').style.display = 'none';
                     document.getElementById('successPanel').classList.add('active');
                     
-                    // Generar detalles del éxito
                     mostrarDetallesExito(payload);
                     
-                    // Mensaje de éxito
                     mostrarMensaje('✅ Configuración guardada exitosamente en Google Sheets', 'success');
                     
                 }, 2000);
@@ -2680,13 +2507,11 @@
                 mostrarCarga(false);
                 mostrarMensaje('✅ Configuración procesada (modo sin conexión)', 'success');
                 
-                // Mostrar panel de éxito incluso en modo sin conexión
                 SYSTEM.isSubmitted = true;
                 document.querySelector('.phase-wrapper.active').style.display = 'none';
                 document.querySelector('.phase-navigation').style.display = 'none';
                 document.getElementById('successPanel').classList.add('active');
                 
-                // Generar detalles del éxito
                 mostrarDetallesExito(SYSTEM.formData);
             }
         }
@@ -2712,7 +2537,7 @@
                         <span>${payload.razon_social || SYSTEM.formData.nombreComercio || ''}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <span style="font-weight: 600; color: var(--gray-600);">Email:</span>
+                        <span style="font-weight: 600; color: var(--gray-600);">EMAIL:</span>
                         <span>${payload.email_corporativo || SYSTEM.formData.emailContacto || ''}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
@@ -2731,18 +2556,16 @@
             container.innerHTML = html;
         }
 
-        // Funciones auxiliares
         function nuevaConfiguracion() {
-            // Reiniciar sistema
             SYSTEM.currentPhase = 0;
             SYSTEM.puntosVentaCount = 1;
             SYSTEM.adicionalesCobroCount = 1;
+            SYSTEM.adicionalesGratuitosCount = 1;
             SYSTEM.otrosAdicionales = [];
             SYSTEM.formData = {};
             SYSTEM.configID = generarIDUnico();
             SYSTEM.isSubmitted = false;
             
-            // Limpiar formulario
             document.querySelectorAll('input, select, textarea').forEach(element => {
                 if (element.type === 'checkbox' || element.type === 'radio') {
                     element.checked = false;
@@ -2751,17 +2574,14 @@
                 }
             });
             
-            // Restablecer vistas
             document.getElementById('successPanel').classList.remove('active');
             document.querySelector('.phase-navigation').style.display = 'flex';
             
-            // Actualizar
             document.getElementById('numeroPuntos').value = 1;
             actualizarPuntosVenta();
             mostrarFaseActual();
             actualizarNavegacion();
             
-            // Scroll al inicio
             document.querySelector('.phase-content').scrollTop = 0;
             
             mostrarMensaje('Sistema reiniciado. ¡Comienza una nueva configuración!', 'success');
@@ -2779,7 +2599,7 @@ Hora: ${new Date().toLocaleTimeString('es-CO')}
 PERFIL EMPRESARIAL
 ==================
 Razón Social: ${data.nombreComercio || 'No especificado'}
-Email Corporativo: ${data.emailContacto || 'No especificado'}
+EMAIL: ${data.emailContacto || 'No especificado'}
 Teléfono: ${data.telefonoContacto || 'No especificado'}
 Sector: ${data.sectorFinal || 'No especificado'}
 
@@ -2790,24 +2610,21 @@ Número: ${document.getElementById('numeroPuntos').value || '1'}
 GESTIÓN DE PRODUCTOS
 ====================
 Catálogo Digital: ${data.menuLink || 'No especificado'}
-Servicios con Valor: ${data.serviciosValor ? data.serviciosValor.join(', ') : 'Ninguno'}
-Beneficios: ${data.adicionalesGratisFinal ? data.adicionalesGratisFinal.join(', ') : 'Ninguno'}
+Adicionales con Pago: ${data.adicionalesCobro || 'Ninguno'}
+Adicionales Gratuitos: ${data.adicionalesGratuitos || 'Ninguno'}
 
 PERSONALIZACIÓN
 ===============
-Modificación Ingredientes: ${data.quitarIngredientes || 'No especificado'}
-Servicio Dividido: ${data.productosDivididos || 'No especificado'}
+Modificación Ingredientes: ${data.modificacionIngredientes || 'No especificado'}
+Quitar Ingredientes: ${data.quitarIngredientesDetalle || 'No especificado'}
 
 LOGÍSTICA
 =========
-Tarifa por Km: $${data.domicilioPorKm || '0'}
-Tarifa Mínima: $${data.costoMinimo || '0'}
-Cobertura: ${data.radioCobertura || '0'} km
-Tiempo Estimado: ${data.tiempoEntrega || 'No especificado'}
+Link Tarifas Barrios: ${data.linkTarifasBarrios || 'No especificado'}
 
 ESTRATEGIAS COMERCIALES
 =======================
-Plataforma de Reservas: ${data.menuReservasLink || 'No especificada'}
+Sistema de Reservas: ${data.reservasInfo || 'No especificado'}
 
 ================================
 Certificado generado por el Sistema de Configuración IA Empresarial
@@ -2861,7 +2678,7 @@ Universo.IA - Inteligencia Artificial para Restaurantes
                         <div class="section">
                             <h3>Perfil Empresarial</h3>
                             <div><span class="label">Razón Social:</span> <span class="value">${SYSTEM.formData.nombreComercio || 'No especificado'}</span></div>
-                            <div><span class="label">Email Corporativo:</span> <span class="value">${SYSTEM.formData.emailContacto || 'No especificado'}</span></div>
+                            <div><span class="label">EMAIL:</span> <span class="value">${SYSTEM.formData.emailContacto || 'No especificado'}</span></div>
                         </div>
                         
                         <div class="signature">
@@ -2885,7 +2702,6 @@ Universo.IA - Inteligencia Artificial para Restaurantes
             mostrarMensaje('✅ Preparando certificado para impresión...', 'success');
         }
 
-        // Utilidades
         function mostrarMensaje(texto, tipo) {
             const container = document.getElementById('messageContainer');
             const messageDiv = document.createElement('div');
@@ -2928,7 +2744,8 @@ Universo.IA - Inteligencia Artificial para Restaurantes
 
         function inicializarContadores() {
             const contadores = {
-                'politicasPersonalizacion': 1000,
+                'modificacionIngredientes': 1000,
+                'quitarIngredientesDetalle': 1000,
                 'politicasReservas': 500,
                 'promociones': 1000,
                 'notasAdicionales': 500
@@ -2968,7 +2785,6 @@ Universo.IA - Inteligencia Artificial para Restaurantes
             
             if (actual > max) {
                 contador.classList.add('danger');
-                // Recortar si excede
                 const textarea = document.getElementById(contador.id.replace('Counter', ''));
                 if (textarea) {
                     textarea.value = textarea.value.substring(0, max);
@@ -3003,12 +2819,39 @@ Universo.IA - Inteligencia Artificial para Restaurantes
             }
         }
 
-        // Validaciones
+        function protegerLogo() {
+            const logos = document.querySelectorAll('.header-logo, .btn-logo img, .home-logo img');
+            
+            logos.forEach(logo => {
+                logo.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    mostrarMensaje('El logo está protegido', 'info');
+                    return false;
+                });
+                
+                logo.setAttribute('draggable', 'false');
+                
+                logo.style.userSelect = 'none';
+                logo.style.webkitUserSelect = 'none';
+                logo.style.mozUserSelect = 'none';
+                logo.style.msUserSelect = 'none';
+                
+                logo.addEventListener('copy', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                logo.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        }
+
         function validarFaseActual() {
             let valido = true;
             const currentPhase = document.querySelector(`.phase-wrapper[data-phase="${SYSTEM.currentPhase}"]`);
             
-            // Validar campos requeridos
             const requiredInputs = currentPhase.querySelectorAll('[required]');
             requiredInputs.forEach(input => {
                 if (!input.value.trim() && input.type !== 'checkbox' && input.type !== 'radio') {
@@ -3027,30 +2870,6 @@ Universo.IA - Inteligencia Artificial para Restaurantes
                     input.style.borderColor = '';
                 }
             });
-            
-            // Validar radios
-            const requiredRadios = currentPhase.querySelectorAll('input[type="radio"][required]');
-            const radioGroups = {};
-            
-            requiredRadios.forEach(radio => {
-                const name = radio.name;
-                if (!radioGroups[name]) {
-                    radioGroups[name] = currentPhase.querySelectorAll(`input[name="${name}"]:checked`);
-                }
-            });
-            
-            for (const group in radioGroups) {
-                if (radioGroups[group].length === 0) {
-                    valido = false;
-                    currentPhase.querySelectorAll(`input[name="${group}"]`).forEach(radio => {
-                        radio.parentElement.style.borderColor = 'var(--danger-color)';
-                    });
-                } else {
-                    currentPhase.querySelectorAll(`input[name="${group}"]`).forEach(radio => {
-                        radio.parentElement.style.borderColor = '';
-                    });
-                }
-            }
             
             return valido;
         }
