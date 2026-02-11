@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <style>
+        /* ========== ESTILOS COMPLETOS (sin cambios) ========== */
         :root {
             --primary-color: #8BC34A;
             --primary-dark: #689F38;
@@ -1080,7 +1081,8 @@
                 <div class="home-content">
                     <div class="home-logo-container">
                         <div class="home-logo">
-                            <img src="https://github.com/universoploperaciones-collab/UNIVERSO.IA/blob/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
+                            <!-- CORREGIDO: URL raw del sello -->
+                            <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
                                  alt="Sello Universo.IA">
                         </div>
                     </div>
@@ -1114,13 +1116,13 @@
                         </div>
                     </div>
 
-                    <!-- TRES LOGOS DE VALORES (INNOVACIÓN, FIRMEZA, CONFIANZA) -->
+                    <!-- TRES LOGOS DE VALORES (INNOVACIÓN, FIRMEZA, CONFIANZA) - CORREGIDOS a raw -->
                     <div class="brand-values">
-                        <img src="https://github.com/universoploperaciones-collab/UNIVERSO.IA/blob/main/UNIVERSO%20-%20IA%20-%20INNOVACION_Mesa%20de%20trabajo%201.png" 
+                        <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20INNOVACION_Mesa%20de%20trabajo%201.png" 
                              alt="Innovación" class="brand-value-logo">
-                        <img src="https://github.com/universoploperaciones-collab/UNIVERSO.IA/blob/main/UNIVERSO%20-%20IA%20-%20V%20-%20FIRMEZA_Mesa%20de%20trabajo%201%20copia.png" 
+                        <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20FIRMEZA_Mesa%20de%20trabajo%201%20copia.png" 
                              alt="Firmeza" class="brand-value-logo">
-                        <img src="https://github.com/universoploperaciones-collab/UNIVERSO.IA/blob/main/UNIVERSO%20-%20IA%20-%20V%20-CONFIANZA_Mesa%20de%20trabajo%201%20copia%202.png" 
+                        <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-CONFIANZA_Mesa%20de%20trabajo%201%20copia%202.png" 
                              alt="Confianza" class="brand-value-logo">
                     </div>
                 </div>
@@ -1585,7 +1587,8 @@
                 </button>
                 <button id="submitConfigBtn" class="btn btn-success btn-with-logo" style="display: none;" onclick="enviarConfiguracion()">
                     <div class="btn-logo">
-                        <img src="https://github.com/universoploperaciones-collab/UNIVERSO.IA/blob/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
+                        <!-- CORREGIDO: URL raw del sello -->
+                        <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
                              alt="Sello IA">
                     </div>
                     <i class="fas fa-rocket"></i> Implementar IA
@@ -1606,7 +1609,8 @@
     <script>
         // ========== SISTEMA DE CONFIGURACIÓN UNIVERSO.IA ==========
         const SYSTEM = {
-            SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz4pB_Up21UC7hl9ZAVP50gvKkVPBTUr8Bd3U575SNS-0Ho7Glh-NsXsqhF9qRcHN7vAg/exec', // Reemplazar con tu URL de Web App
+            // ⚠️ REEMPLAZA ESTA URL CON LA DE TU GOOGLE APPS SCRIPT
+            SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz4pB_Up21UC7hl9ZAVP50gvKkVPBTUr8Bd3U575SNS-0Ho7Glh-NsXsqhF9qRcHN7vAg/exec',
             currentPhase: 0,
             totalPhases: 8,
             puntosVentaCount: 1,
@@ -2385,12 +2389,12 @@
                     </style>
                 </head>
                 <body>
-                    <!-- MARCA DE AGUA: SELLO -->
-                    <img class="watermark" src="https://github.com/universoploperaciones-collab/UNIVERSO.IA/blob/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
+                    <!-- MARCA DE AGUA: SELLO (raw) -->
+                    <img class="watermark" src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
                          alt="Sello IA">
                     
                     <div class="certificate">
-                        <!-- LOGO PRINCIPAL GRANDE -->
+                        <!-- LOGO PRINCIPAL GRANDE (raw) -->
                         <div class="main-logo">
                             <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" 
                                  alt="Universo.IA">
@@ -2575,9 +2579,6 @@
             input.style.borderColor = '#8BC34A';
             return true;
         }
-
-        // Para completar los departamentos faltantes en COLOMBIA_DATA (se agregaron los más comunes)
-        // Si se requiere una lista completa, se puede extender.
     </script>
 </body>
 </html>
