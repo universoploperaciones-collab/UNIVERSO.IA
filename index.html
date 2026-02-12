@@ -950,7 +950,7 @@
                     <h3 style="color: #0ea5e9; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-money-bill-wave"></i> Adicionales con pago
                     </h3>
-                    <!-- TEXTO CONTEXTUALIZADOR AÑADIDO -->
+                    <!-- TEXTO CONTEXTUALIZADOR -->
                     <p style="color: var(--gray-600); font-size: 0.95rem; margin-bottom: 20px; padding-left: 30px; border-left: 3px solid #0ea5e9; background: rgba(14,165,233,0.05); padding: 12px 16px; border-radius: 6px;">
                         <i class="fas fa-info-circle" style="color: #0ea5e9;"></i> 
                         Aquí puedes agregar productos adicionales que tienen costo extra, como salsas especiales, porciones extras, bebidas premium, ingredientes extra, etc. Indica el nombre y el precio de cada adicional.
@@ -993,7 +993,7 @@
                     <h3 style="color: #0e9f6e; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-gift"></i> Adicionales Gratuitos
                     </h3>
-                    <!-- TEXTO CONTEXTUALIZADOR AÑADIDO -->
+                    <!-- TEXTO CONTEXTUALIZADOR -->
                     <p style="color: var(--gray-600); font-size: 0.95rem; margin-bottom: 20px; padding-left: 30px; border-left: 3px solid #0e9f6e; background: rgba(14,159,110,0.05); padding: 12px 16px; border-radius: 6px;">
                         <i class="fas fa-info-circle" style="color: #0e9f6e;"></i> 
                         Aquí puedes agregar productos o servicios adicionales sin costo para el cliente, como servilletas extras, salsas de cortesía, cubiertos adicionales, acompañamientos sin cargo, etc. Describe brevemente cada adicional gratuito.
@@ -1032,7 +1032,7 @@
                 </div>
             </div>
 
-            <!-- FASE 4: Personalización Avanzada (orden intercambiado) -->
+            <!-- FASE 4: Personalización Avanzada -->
             <div class="phase-wrapper" data-phase="4">
                 <div class="phase-header">
                     <h2><i class="fas fa-sliders-h"></i> Personalización Avanzada</h2>
@@ -1042,7 +1042,6 @@
                     </p>
                 </div>
                 
-                <!-- PRIMERO: Quitar ingredientes -->
                 <div class="form-group">
                     <label class="form-label" for="quitarIngredientesDetalle">
                         <i class="fas fa-minus-circle"></i> ¿Cuáles de tus productos permiten quitarle ingredientes?
@@ -1056,7 +1055,6 @@
                     <div class="char-counter" id="quitarIngredientesDetalleCounter">0/1000 caracteres</div>
                 </div>
                 
-                <!-- SEGUNDO: Modificación de ingredientes -->
                 <div class="form-group">
                     <label class="form-label" for="modificacionIngredientes">
                         <i class="fas fa-edit"></i> Modificación de ingredientes
@@ -1111,7 +1109,7 @@
                         <label class="form-label">
                             <i class="fas fa-calendar-check"></i> ¿Tienes sistema de reservas?
                         </label>
-                        <select id="tieneReservas" class="form-control" onchange="toggleReservasDetalle()">
+                        <select id="tieneReservas" name="tieneReservas" class="form-control" onchange="toggleReservasDetalle()">
                             <option value="no">No</option>
                             <option value="si">Sí</option>
                         </select>
@@ -1585,7 +1583,7 @@
             detalleContainer.style.display = tieneReservas === 'si' ? 'block' : 'none';
         }
 
-        // ========== GENERAR VISTA PREVIA (MEJORADA: LINKS DESDE DOM) ==========
+        // ========== GENERAR VISTA PREVIA (CORREGIDA: LECTURA DIRECTA DEL DOM) ==========
         function generarVistaPrevia() {
             const container = document.getElementById('previewContainer');
             const data = recolectarDatosFormulario();
@@ -1624,10 +1622,14 @@
                 }
             }
             
+            // --- SISTEMA DE RESERVAS: leer directamente del DOM ---
             let reservasInfo = 'No tiene sistema de reservas';
-            if (data.tieneReservas === 'si') {
-                reservasInfo = `Sí tiene reservas<br>Brochure: ${data.menuReservasLink ? `<a href="${data.menuReservasLink}" target="_blank">🔗 Ver brochure</a>` : 'No especificado'}`;
-                if (data.politicasReservas) reservasInfo += `<br>Políticas: ${data.politicasReservas}`;
+            const tieneReservas = document.getElementById('tieneReservas')?.value || 'no';
+            if (tieneReservas === 'si') {
+                const linkReservas = document.getElementById('menuReservasLink')?.value || '';
+                const politicas = document.getElementById('politicasReservas')?.value || '';
+                reservasInfo = `Sí tiene reservas<br>Brochure: ${linkReservas ? `<a href="${linkReservas}" target="_blank">🔗 Ver brochure</a>` : 'No especificado'}`;
+                if (politicas) reservasInfo += `<br>Políticas: ${politicas}`;
             }
             
             let html = `
@@ -1683,7 +1685,7 @@
             SYSTEM.formData = data;
         }
 
-        // ========== RECOLECTOR DE DATOS (SIN CAMBIOS) ==========
+        // ========== RECOLECTOR DE DATOS ==========
         function recolectarDatosFormulario() {
             const formData = new FormData();
             document.querySelectorAll('input, select, textarea').forEach(input => {
@@ -1706,7 +1708,7 @@
             return data;
         }
 
-        // ========== ENVÍO A GOOGLE SHEETS (CORREGIDO: LECTURA DIRECTA DE LINKS) ==========
+        // ========== ENVÍO A GOOGLE SHEETS ==========
         async function enviarConfiguracion() {
             mostrarCarga(true, 'Guardando configuración...');
             try {
@@ -1806,7 +1808,7 @@
             }
         }
 
-        // ========== NUEVA CONFIGURACIÓN (CON LIMPIEZA DE CAMPOS DE LINK) ==========
+        // ========== NUEVA CONFIGURACIÓN ==========
         function nuevaConfiguracion() {
             SYSTEM.currentPhase = 0;
             SYSTEM.puntosVentaCount = 1;
@@ -1842,7 +1844,7 @@
             mostrarMensaje('Sistema reiniciado. ¡Comienza una nueva configuración!', 'success');
         }
 
-        // ========== IMPRIMIR CERTIFICADO (con marca de agua del sello) ==========
+        // ========== IMPRIMIR CERTIFICADO ==========
         function imprimirResumen() {
             const ventana = window.open('', '_blank');
             const nombreEmpresa = SYSTEM.formData.nombreComercio || 'Empresa';
