@@ -253,7 +253,7 @@
         .home-logo-row {
             display: flex;
             align-items: center;
-            justify-content: center; /* CENTRADO */
+            justify-content: center;
             gap: 30px;
             margin-bottom: 40px;
             flex-wrap: wrap;
@@ -699,7 +699,7 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin { 0% { transform: rotate(0deg); } 50% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
 
         @media (max-width: 768px) {
             .header-logo { max-width: 250px; }
@@ -718,7 +718,7 @@
         <!-- HEADER: LOGO GRANDE -->
         <header class="app-header">
             <div class="header-logo-container">
-                <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" 
+                <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/PRINCIPALUNIVERSO.IA.png" 
                      alt="Logo Universo.IA" class="header-logo">
                 <div class="logo-text">
                     <p>Sistema de Configuración Inteligente para Restaurantes</p>
@@ -923,7 +923,7 @@
                 </div>
             </div>
 
-            <!-- FASE 3: Gestión de Productos -->
+            <!-- FASE 3: Gestión de Productos (CORREGIDA: lectura directa de links) -->
             <div class="phase-wrapper" data-phase="3">
                 <div class="phase-header">
                     <h2><i class="fas fa-boxes"></i> Gestión de Productos</h2>
@@ -935,11 +935,11 @@
                 
                 <div class="form-group">
                     <label class="form-label" for="menuLink">
-                        <i class="fas fa-link"></i> Enlace al Catálogo Digital
+                        <i class="fas fa-link"></i> Enlace al Menú Digital
                     </label>
                     <input type="url" id="menuLink" name="menuLink" 
                            class="form-control" required 
-                           placeholder="https://drive.google.com/... o https://miempresa.com/catalogo">
+                           placeholder="https://drive.google.com/... o https://mimenu.com/catalogo">
                     <div class="form-hint">
                         <i class="fas fa-info-circle"></i> El archivo debe estar en Google Drive con permisos públicos, o ser un PDF online/página web accesible para todos.
                     </div>
@@ -947,9 +947,14 @@
                 
                 <!-- ADICIONALES CON PAGO -->
                 <div class="dynamic-section" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-color: #0ea5e9;">
-                    <h3 style="color: #0ea5e9; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <h3 style="color: #0ea5e9; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-money-bill-wave"></i> Adicionales con pago
                     </h3>
+                    <!-- TEXTO CONTEXTUALIZADOR AÑADIDO -->
+                    <p style="color: var(--gray-600); font-size: 0.95rem; margin-bottom: 20px; padding-left: 30px; border-left: 3px solid #0ea5e9; background: rgba(14,165,233,0.05); padding: 12px 16px; border-radius: 6px;">
+                        <i class="fas fa-info-circle" style="color: #0ea5e9;"></i> 
+                        Aquí puedes agregar productos adicionales que tienen costo extra, como salsas especiales, porciones extras, bebidas premium, ingredientes extra, etc. Indica el nombre y el precio de cada adicional.
+                    </p>
                     
                     <div class="form-group">
                         <label class="form-label">¿Cómo deseas proporcionar esta información?</label>
@@ -985,9 +990,14 @@
                 
                 <!-- ADICIONALES GRATUITOS -->
                 <div class="dynamic-section" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #0e9f6e;">
-                    <h3 style="color: #0e9f6e; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <h3 style="color: #0e9f6e; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-gift"></i> Adicionales Gratuitos
                     </h3>
+                    <!-- TEXTO CONTEXTUALIZADOR AÑADIDO -->
+                    <p style="color: var(--gray-600); font-size: 0.95rem; margin-bottom: 20px; padding-left: 30px; border-left: 3px solid #0e9f6e; background: rgba(14,159,110,0.05); padding: 12px 16px; border-radius: 6px;">
+                        <i class="fas fa-info-circle" style="color: #0e9f6e;"></i> 
+                        Aquí puedes agregar productos o servicios adicionales sin costo para el cliente, como servilletas extras, salsas de cortesía, cubiertos adicionales, acompañamientos sin cargo, etc. Describe brevemente cada adicional gratuito.
+                    </p>
                     
                     <div class="form-group">
                         <label class="form-label">¿Cómo deseas proporcionar esta información?</label>
@@ -1266,7 +1276,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        // ========== SISTEMA DE CONFIGURACIÓN UNIVERSO.IA (VERSIÓN FINAL) ==========
+        // ========== SISTEMA DE CONFIGURACIÓN UNIVERSO.IA (VERSIÓN FINAL CORREGIDA) ==========
         const SYSTEM = {
             // ⚠️ REEMPLAZA ESTA URL CON LA DE TU GOOGLE APPS SCRIPT (después de implementar)
             SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw5sL8mRBhlUZAr5zn0hhIz4gzvCaaVUH09niM8HBz63-9x1KCF6wJOJMzpAWhX-YOmLw/exec',
@@ -1575,7 +1585,7 @@
             detalleContainer.style.display = tieneReservas === 'si' ? 'block' : 'none';
         }
 
-        // ========== GENERAR VISTA PREVIA ==========
+        // ========== GENERAR VISTA PREVIA (MEJORADA: LINKS DESDE DOM) ==========
         function generarVistaPrevia() {
             const container = document.getElementById('previewContainer');
             const data = recolectarDatosFormulario();
@@ -1583,9 +1593,12 @@
             let sectorFinal = data.sectorNegocio || '';
             if (sectorFinal === 'otros' && data.sectorOtro) sectorFinal = data.sectorOtro;
             
+            // --- ADICIONALES CON PAGO: leer link directamente del DOM ---
             let adicionalesCobroTexto = '';
-            if (data.tipoAdicionalCobro === 'link') {
-                adicionalesCobroTexto = data.adicionalCobroLink ? `Enlace: ${data.adicionalCobroLink}` : 'No proporcionado';
+            const tipoCobro = document.getElementById('tipoAdicionalCobro')?.value || '';
+            if (tipoCobro === 'link') {
+                const link = document.getElementById('adicionalCobroLink')?.value || '';
+                adicionalesCobroTexto = link ? `<a href="${link}" target="_blank">🔗 Ver enlace</a>` : 'No proporcionado';
             } else {
                 if (data.adicionalCobroNombre && data.adicionalCobroNombre.length) {
                     adicionalesCobroTexto = data.adicionalCobroNombre.map((nombre, i) => {
@@ -1597,9 +1610,12 @@
                 }
             }
             
+            // --- ADICIONALES GRATUITOS: leer link directamente del DOM ---
             let adicionalesGratuitosTexto = '';
-            if (data.tipoAdicionalGratuito === 'link') {
-                adicionalesGratuitosTexto = data.adicionalGratuitoLink ? `Enlace: ${data.adicionalGratuitoLink}` : 'No proporcionado';
+            const tipoGratis = document.getElementById('tipoAdicionalGratuito')?.value || '';
+            if (tipoGratis === 'link') {
+                const link = document.getElementById('adicionalGratuitoLink')?.value || '';
+                adicionalesGratuitosTexto = link ? `<a href="${link}" target="_blank">🔗 Ver enlace</a>` : 'No proporcionado';
             } else {
                 if (data.adicionalesGratuitos && data.adicionalesGratuitos.length) {
                     adicionalesGratuitosTexto = data.adicionalesGratuitos.join('<br>');
@@ -1610,7 +1626,7 @@
             
             let reservasInfo = 'No tiene sistema de reservas';
             if (data.tieneReservas === 'si') {
-                reservasInfo = `Sí tiene reservas<br>Brochure: ${data.menuReservasLink || 'No especificado'}`;
+                reservasInfo = `Sí tiene reservas<br>Brochure: ${data.menuReservasLink ? `<a href="${data.menuReservasLink}" target="_blank">🔗 Ver brochure</a>` : 'No especificado'}`;
                 if (data.politicasReservas) reservasInfo += `<br>Políticas: ${data.politicasReservas}`;
             }
             
@@ -1639,7 +1655,7 @@
                 </div>
                 <div class="preview-section">
                     <h4><i class="fas fa-boxes"></i> Gestión de Productos</h4>
-                    <div class="preview-item"><span class="preview-label">Catálogo Digital:</span><span class="preview-value">${data.menuLink ? `<a href="${data.menuLink}" target="_blank">Ver catálogo</a>` : 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">Catálogo Digital:</span><span class="preview-value">${data.menuLink ? `<a href="${data.menuLink}" target="_blank">🔗 Ver catálogo</a>` : 'No especificado'}</span></div>
                     <div class="preview-item"><span class="preview-label">Adicionales con Pago:</span><span class="preview-value">${adicionalesCobroTexto}</span></div>
                     <div class="preview-item"><span class="preview-label">Adicionales Gratuitos:</span><span class="preview-value">${adicionalesGratuitosTexto}</span></div>
                 </div>
@@ -1650,7 +1666,7 @@
                 </div>
                 <div class="preview-section">
                     <h4><i class="fas fa-shipping-fast"></i> Servicios Logísticos</h4>
-                    <div class="preview-item"><span class="preview-label">Link Tarifas Barrios:</span><span class="preview-value">${data.linkTarifasBarrios ? `<a href="${data.linkTarifasBarrios}" target="_blank">Ver tarifas</a>` : 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">Link Tarifas Barrios:</span><span class="preview-value">${data.linkTarifasBarrios ? `<a href="${data.linkTarifasBarrios}" target="_blank">🔗 Ver tarifas</a>` : 'No especificado'}</span></div>
                 </div>
                 <div class="preview-section">
                     <h4><i class="fas fa-chart-line"></i> Estrategias</h4>
@@ -1667,7 +1683,7 @@
             SYSTEM.formData = data;
         }
 
-        // ========== RECOLECTOR DE DATOS ==========
+        // ========== RECOLECTOR DE DATOS (SIN CAMBIOS) ==========
         function recolectarDatosFormulario() {
             const formData = new FormData();
             document.querySelectorAll('input, select, textarea').forEach(input => {
@@ -1690,7 +1706,7 @@
             return data;
         }
 
-        // ========== ENVÍO A GOOGLE SHEETS (VERSIÓN FINAL) ==========
+        // ========== ENVÍO A GOOGLE SHEETS (CORREGIDO: LECTURA DIRECTA DE LINKS) ==========
         async function enviarConfiguracion() {
             mostrarCarga(true, 'Guardando configuración...');
             try {
@@ -1704,12 +1720,12 @@
                     return `${nombre} | ${depto} | ${ciudad} | ${direccion}`;
                 }).join(' || ') : '';
                 
-                // Adicionales con pago
-                let adicionalesConPagoTipo = data.tipoAdicionalCobro || '';
+                // --- ADICIONALES CON PAGO ---
+                let adicionalesConPagoTipo = document.getElementById('tipoAdicionalCobro')?.value || '';
                 let adicionalesConPagoLink = '';
                 let adicionalesConPagoLista = '';
-                if (data.tipoAdicionalCobro === 'link') {
-                    adicionalesConPagoLink = data.adicionalCobroLink || '';
+                if (adicionalesConPagoTipo === 'link') {
+                    adicionalesConPagoLink = document.getElementById('adicionalCobroLink')?.value || '';
                 } else {
                     if (data.adicionalCobroNombre && data.adicionalCobroNombre.length) {
                         adicionalesConPagoLista = data.adicionalCobroNombre.map((n, i) => {
@@ -1719,12 +1735,12 @@
                     }
                 }
                 
-                // Adicionales gratuitos
-                let adicionalesGratuitosTipo = data.tipoAdicionalGratuito || '';
+                // --- ADICIONALES GRATUITOS ---
+                let adicionalesGratuitosTipo = document.getElementById('tipoAdicionalGratuito')?.value || '';
                 let adicionalesGratuitosLink = '';
                 let adicionalesGratuitosLista = '';
-                if (data.tipoAdicionalGratuito === 'link') {
-                    adicionalesGratuitosLink = data.adicionalGratuitoLink || '';
+                if (adicionalesGratuitosTipo === 'link') {
+                    adicionalesGratuitosLink = document.getElementById('adicionalGratuitoLink')?.value || '';
                 } else {
                     if (data.adicionalesGratuitos && data.adicionalesGratuitos.length) {
                         adicionalesGratuitosLista = data.adicionalesGratuitos.join('; ');
@@ -1776,7 +1792,7 @@
                     document.querySelector('.phase-wrapper.active').style.display = 'none';
                     document.querySelector('.phase-navigation').style.display = 'none';
                     document.getElementById('successPanel').classList.add('active');
-                    mostrarMensaje('✅ Configuración guardada exitosamente', 'success');
+                    mostrarMensaje('✅ Configuración guardada exitosamente en Google Sheets', 'success');
                 }, 2000);
                 
             } catch (error) {
@@ -1790,7 +1806,7 @@
             }
         }
 
-        // ========== NUEVA CONFIGURACIÓN ==========
+        // ========== NUEVA CONFIGURACIÓN (CON LIMPIEZA DE CAMPOS DE LINK) ==========
         function nuevaConfiguracion() {
             SYSTEM.currentPhase = 0;
             SYSTEM.puntosVentaCount = 1;
@@ -1804,6 +1820,10 @@
                 if (element.type === 'checkbox' || element.type === 'radio') element.checked = false;
                 else if (element.type !== 'button' && element.type !== 'submit') element.value = '';
             });
+            
+            // Limpiar específicamente los campos de link
+            document.getElementById('adicionalCobroLink').value = '';
+            document.getElementById('adicionalGratuitoLink').value = '';
             
             document.getElementById('successPanel').classList.remove('active');
             document.querySelector('.phase-navigation').style.display = 'flex';
@@ -1853,7 +1873,7 @@
                     <img class="watermark" src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" alt="Sello IA">
                     <div class="certificate">
                         <div class="main-logo">
-                            <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" alt="Universo.IA">
+                            <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/PRINCIPALUNIVERSO.IA.png" alt="Universo.IA">
                         </div>
                         <h1>Certificado de Configuración IA</h1>
                         <div class="section">
