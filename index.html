@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <style>
-        /* ========== ESTILOS COMPLETOS (sin cambios) ========== */
+        /* ========== ESTILOS COMPLETOS (ajustes finales) ========== */
         :root {
             --primary-color: #8BC34A;
             --primary-dark: #689F38;
@@ -55,7 +55,7 @@
         }
 
         body {
-            font-family: 'Montserrat', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Montserrat', 'Open Sans', sans-serif;
             background: linear-gradient(135deg, #f0f4f8 0%, #e9ecf0 100%);
             color: var(--secondary-color);
             line-height: 1.6;
@@ -66,16 +66,10 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-                padding: 10px;
-            }
+            body { font-size: 14px; padding: 10px; }
         }
-
         @media (max-width: 480px) {
-            body {
-                font-size: 13px;
-            }
+            body { font-size: 13px; }
         }
 
         body::before {
@@ -96,6 +90,7 @@
             z-index: 1;
         }
 
+        /* HEADER con logo más grande */
         .app-header {
             text-align: center;
             margin-bottom: 30px;
@@ -128,7 +123,7 @@
         }
 
         .header-logo {
-            max-width: 300px;
+            max-width: 400px;
             width: 100%;
             height: auto;
             object-fit: contain;
@@ -136,22 +131,6 @@
             pointer-events: none;
             user-select: none;
             -webkit-user-drag: none;
-        }
-
-        .header-logo-container img {
-            -webkit-user-drag: none;
-            -khtml-user-drag: none;
-            -moz-user-drag: none;
-            -o-user-drag: none;
-            user-drag: none;
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-
-        .logo-text {
-            text-align: center;
         }
 
         .logo-text p {
@@ -172,30 +151,25 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        /* Navegación superior */
+        /* MENÚ SUPERIOR: solo barra de progreso - SIN LÍNEA SUPERIOR */
         .top-nav {
             background: linear-gradient(180deg, var(--secondary-color) 0%, #333333 100%);
             border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-            padding: 20px 30px 10px;
-            position: relative;
+            padding: 20px 30px;
             border: 2px solid var(--secondary-color);
             border-bottom: none;
+            position: relative;
         }
 
+        /* ELIMINADA LA LÍNEA VERDE SUPERIOR */
         .top-nav::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            display: none;
         }
 
         .phase-progress-top {
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 15px;
+            padding-bottom: 0;
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .progress-label {
@@ -238,81 +212,9 @@
             100% { transform: translateX(100%); }
         }
 
+        /* OCULTAR MENÚ DE FASES HORIZONTAL */
         .phase-list-horizontal {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: space-between;
-        }
-
-        .phase-item-h {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 18px;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-            flex: 1 1 120px;
-            background: rgba(255,255,255,0.05);
-        }
-
-        .phase-item-h:hover {
-            background: rgba(139, 195, 74, 0.1);
-            border-color: var(--primary-color);
-        }
-
-        .phase-item-h.active {
-            background: rgba(139, 195, 74, 0.15);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 1px var(--primary-color);
-        }
-
-        .phase-item-h.completed {
-            opacity: 0.8;
-        }
-
-        .phase-number-h {
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 13px;
-            color: var(--white);
-            transition: all var(--transition);
-        }
-
-        .phase-item-h.active .phase-number-h {
-            background: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(139, 195, 74, 0.3);
-            transform: scale(1.1);
-        }
-
-        .phase-item-h.completed .phase-number-h {
-            background: var(--success-color);
-        }
-
-        .phase-info-h {
-            flex: 1;
-        }
-
-        .phase-title-h {
-            font-weight: 600;
-            color: var(--white);
-            font-size: 0.9rem;
-            margin-bottom: 2px;
-        }
-
-        .phase-desc-h {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.7);
+            display: none !important;
         }
 
         .phase-content {
@@ -381,18 +283,23 @@
             max-width: 700px;
         }
 
+        /* ===== HOME - LOGO Y BOTÓN CENTRADOS ===== */
         .home-content {
-            text-align: center;
+            text-align: left;
             padding: 20px;
         }
 
-        .home-logo-container {
-            margin-bottom: 30px;
+        .home-logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* CENTRADO */
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .home-logo {
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 350px;
         }
 
         .home-logo img {
@@ -401,16 +308,36 @@
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
         }
 
-        .home-subtitle {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-weight: 600;
+        .home-action {
+            text-align: left;
         }
 
-        .home-action {
-            margin: 40px 0;
-            text-align: center;
+        /* BOTÓN NEGRO */
+        .btn-home {
+            padding: 22px 48px;
+            font-size: 1.4rem;
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 60px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            transition: all var(--transition);
+        }
+
+        .btn-home i {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            background: #222;
+            border-color: #222;
         }
 
         .home-description {
@@ -418,7 +345,7 @@
             color: var(--gray-700);
             line-height: 1.8;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto;
             text-align: center;
             padding: 30px;
             background: var(--primary-light);
@@ -459,21 +386,22 @@
             margin-bottom: 15px;
         }
 
-        /* Logos de valores */
+        /* LOGOS DE VALORES MÁS GRANDES */
         .brand-values {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 50px;
-            margin-top: 60px;
-            margin-bottom: 30px;
+            gap: 60px;
+            margin-top: 70px;
+            margin-bottom: 40px;
         }
 
         .brand-value-logo {
-            max-width: 180px;
+            max-width: 280px;
+            width: 100%;
             height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
         }
 
         .form-grid {
@@ -520,10 +448,6 @@
             box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.1);
         }
 
-        .form-control:hover {
-            border-color: var(--gray-400);
-        }
-
         .form-hint {
             font-size: 0.9rem;
             color: var(--gray-500);
@@ -566,29 +490,6 @@
             transform: translateY(-2px);
         }
 
-        .select2-container {
-            width: 100% !important;
-        }
-
-        .select2-selection {
-            border: 2px solid var(--gray-300) !important;
-            border-radius: var(--radius-md) !important;
-            height: auto !important;
-            padding: 14px 20px !important;
-            transition: all var(--transition-fast) !important;
-            background: var(--white) !important;
-        }
-
-        .select2-selection:focus {
-            border-color: var(--primary-color) !important;
-            box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.1) !important;
-        }
-
-        .select2-selection__rendered {
-            padding-left: 0 !important;
-            color: var(--gray-800) !important;
-        }
-
         .btn {
             padding: 16px 32px;
             border: none;
@@ -624,16 +525,18 @@
             height: 300px;
         }
 
+        /* BOTÓN PRIMARIO NEGRO */
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            background: var(--black);
             color: var(--white);
-            box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
-            border: 2px solid var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--black);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 195, 74, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: #222;
         }
 
         .btn-secondary {
@@ -647,10 +550,27 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .btn-success {
-            background: linear-gradient(135deg, var(--success-color), #388E3C);
+        /* BOTÓN IMPLEMENTAR IA NEGRO (sin logo) */
+        .btn-implementar {
+            background: var(--black);
             color: var(--white);
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--black);
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all var(--transition);
+        }
+
+        .btn-implementar:hover {
+            background: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
         .btn-add {
@@ -674,32 +594,6 @@
             margin-top: 60px;
             padding-top: 30px;
             border-top: 2px solid var(--gray-200);
-        }
-
-        .btn-with-logo {
-            position: relative;
-            padding-left: 70px;
-        }
-
-        .btn-logo {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .btn-logo img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
         }
 
         .auto-acceptance {
@@ -956,31 +850,13 @@
             100% { transform: rotate(360deg); }
         }
 
-        @media (max-width: 1200px) {
-            .phase-list-horizontal {
-                flex-direction: column;
-            }
-            .phase-item-h {
-                width: 100%;
-            }
-        }
-
         @media (max-width: 768px) {
-            .header-logo {
-                max-width: 200px;
-            }
-            .phase-content {
-                padding: 30px;
-            }
-            .home-subtitle {
-                font-size: 1.2rem;
-            }
-            .brand-values {
-                gap: 30px;
-            }
-            .brand-value-logo {
-                max-width: 130px;
-            }
+            .header-logo { max-width: 250px; }
+            .phase-content { padding: 30px; }
+            .home-logo-row { flex-direction: column; gap: 20px; }
+            .btn-home { padding: 18px 32px; font-size: 1.2rem; }
+            .brand-values { gap: 30px; }
+            .brand-value-logo { max-width: 200px; }
         }
     </style>
 </head>
@@ -988,7 +864,7 @@
     <div class="particles" id="particles"></div>
 
     <div class="app-container">
-        <!-- HEADER: LOGO GRANDE ARRIBA, TEXTO DEBAJO -->
+        <!-- HEADER: LOGO GRANDE -->
         <header class="app-header">
             <div class="header-logo-container">
                 <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" 
@@ -1003,7 +879,7 @@
             </p>
         </header>
 
-        <!-- MENÚ SUPERIOR Y BARRA DE PROGRESO INTEGRADA -->
+        <!-- BARRA DE PROGRESO (menú de fases oculto) - SIN LÍNEA SUPERIOR -->
         <div class="top-nav">
             <div class="phase-progress-top">
                 <div class="progress-label">
@@ -1014,83 +890,34 @@
                     <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
                 </div>
             </div>
+            <!-- Menú de fases OCULTO -->
             <div class="phase-list-horizontal" id="phaseListHorizontal">
-                <div class="phase-item-h active" data-phase="0">
-                    <div class="phase-number-h"><i class="fas fa-home"></i></div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Inicio</div>
-                        <div class="phase-desc-h">Bienvenida</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="1">
-                    <div class="phase-number-h">1</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Perfil</div>
-                        <div class="phase-desc-h">Información básica</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="2">
-                    <div class="phase-number-h">2</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Ubicaciones</div>
-                        <div class="phase-desc-h">Puntos de operación</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="3">
-                    <div class="phase-number-h">3</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Productos</div>
-                        <div class="phase-desc-h">Inventario</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="4">
-                    <div class="phase-number-h">4</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Personalización</div>
-                        <div class="phase-desc-h">Reglas</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="5">
-                    <div class="phase-number-h">5</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Logística</div>
-                        <div class="phase-desc-h">Domicilios</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="6">
-                    <div class="phase-number-h">6</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Estrategias</div>
-                        <div class="phase-desc-h">Promociones</div>
-                    </div>
-                </div>
-                <div class="phase-item-h" data-phase="7">
-                    <div class="phase-number-h">7</div>
-                    <div class="phase-info-h">
-                        <div class="phase-title-h">Revisión</div>
-                        <div class="phase-desc-h">Confirmación</div>
-                    </div>
-                </div>
+                <div class="phase-item-h" data-phase="0">Inicio</div>
+                <div class="phase-item-h" data-phase="1">Perfil</div>
+                <div class="phase-item-h" data-phase="2">Ubicaciones</div>
+                <div class="phase-item-h" data-phase="3">Productos</div>
+                <div class="phase-item-h" data-phase="4">Personalización</div>
+                <div class="phase-item-h" data-phase="5">Logística</div>
+                <div class="phase-item-h" data-phase="6">Estrategias</div>
+                <div class="phase-item-h" data-phase="7">Revisión</div>
             </div>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL DE LAS FASES -->
+        <!-- CONTENIDO PRINCIPAL -->
         <section class="phase-content">
-            <!-- FASE 0: HOME (con logo sello y tres logos de valores) -->
+            <!-- FASE 0: HOME (logo y botón centrados) -->
             <div class="phase-wrapper active" data-phase="0">
                 <div class="home-content">
-                    <div class="home-logo-container">
+                    <div class="home-logo-row">
                         <div class="home-logo">
-                            <!-- CORREGIDO: URL raw del sello -->
                             <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
                                  alt="Sello Universo.IA">
                         </div>
-                    </div>
-                   
-                    <div class="home-action">
-                        <button class="btn btn-primary" onclick="nextPhase()">
-                            <i class="fas fa-rocket"></i> Comenzar Configuración
-                        </button>
+                        <div class="home-action">
+                            <button class="btn-home" onclick="nextPhase()">
+                                <i class="fas fa-rocket"></i> Comenzar Configuración
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="home-description">
@@ -1116,7 +943,7 @@
                         </div>
                     </div>
 
-                    <!-- TRES LOGOS DE VALORES (INNOVACIÓN, FIRMEZA, CONFIANZA) - CORREGIDOS a raw -->
+                    <!-- TRES LOGOS DE VALORES MÁS GRANDES -->
                     <div class="brand-values">
                         <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20INNOVACION_Mesa%20de%20trabajo%201.png" 
                              alt="Innovación" class="brand-value-logo">
@@ -1261,63 +1088,80 @@
                     </label>
                     <input type="url" id="menuLink" name="menuLink" 
                            class="form-control" required 
-                           placeholder="https://miempresa.com/catalogo">
+                           placeholder="https://drive.google.com/... o https://miempresa.com/catalogo">
                     <div class="form-hint">
-                        <i class="fas fa-info-circle"></i> Google Drive, PDF online o página web
+                        <i class="fas fa-info-circle"></i> El archivo debe estar en Google Drive con permisos públicos, o ser un PDF online/página web accesible para todos.
                     </div>
                 </div>
                 
+                <!-- ADICIONALES CON PAGO -->
                 <div class="dynamic-section" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-color: #0ea5e9;">
                     <h3 style="color: #0ea5e9; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-money-bill-wave"></i> Adicionales con pago
                     </h3>
-                    <p style="margin-bottom: 20px; color: var(--gray-600);">
-                        Lista todos los adicionales que ofreces con su respectivo precio. 
-                        Ej: Tartara, pollo desmechado, porción de papas, etc. Agrega todos los adicionales que tengas.
-                    </p>
                     
-                    <div id="adicionalesCobroContainer">
-                        <div class="dynamic-item">
-                            <input type="text" placeholder="Nombre del adicional (Ej: Tartara)" 
-                                   class="form-control" name="adicionalCobroNombre[]" required>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <span style="font-weight: bold; color: #0e9f6e; font-size: 1.2rem;">$</span>
-                                <input type="number" placeholder="0.00" step="0.01" min="0"
-                                       class="form-control" name="adicionalCobroPrecio[]" required>
+                    <div class="form-group">
+                        <label class="form-label">¿Cómo deseas proporcionar esta información?</label>
+                        <select id="tipoAdicionalCobro" class="form-control" onchange="toggleTipoAdicionalCobro()">
+                            <option value="link">Subir enlace (Google Drive / PDF / imagen) con los productos y precios</option>
+                            <option value="manual">Agregar productos manualmente</option>
+                        </select>
+                    </div>
+                    
+                    <div id="adicionalCobroLinkContainer" style="display: block;">
+                        <div class="form-group">
+                            <label class="form-label" for="adicionalCobroLink">
+                                <i class="fas fa-file-pdf"></i> Enlace (Google Drive / PDF / imagen)
+                            </label>
+                            <input type="url" id="adicionalCobroLink" name="adicionalCobroLink" 
+                                   class="form-control" placeholder="https://drive.google.com/...">
+                            <div class="form-hint">
+                                <i class="fas fa-info-circle"></i> Asegúrate de que el enlace sea público y accesible para todos.
                             </div>
-                            <button type="button" class="btn btn-danger" onclick="eliminarAdicionalCobro(this)">
-                                <i class="fas fa-times"></i> Eliminar
-                            </button>
                         </div>
                     </div>
                     
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button type="button" class="btn btn-add" onclick="agregarAdicionalCobro()">
-                            <i class="fas fa-plus"></i> Agregar Adicional con Pago
-                        </button>
+                    <div id="adicionalCobroManualContainer" style="display: none;">
+                        <p style="margin-bottom: 15px; color: var(--gray-600);">Agrega cada adicional con su precio:</p>
+                        <div id="adicionalesCobroContainer"></div>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button type="button" class="btn btn-add" onclick="agregarAdicionalCobro()">
+                                <i class="fas fa-plus"></i> Agregar Adicional con Pago
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- ADICIONALES GRATUITOS -->
                 <div class="dynamic-section" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #0e9f6e;">
                     <h3 style="color: #0e9f6e; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-gift"></i> Adicionales Gratuitos
                     </h3>
-                    <p style="margin-bottom: 20px; color: var(--gray-600);">
-                        Detalla qué tipo de adicionales gratuitos ofreces. Ej: Salsas especiales, pan extra, etc.
-                    </p>
                     
                     <div class="form-group">
-                        <div id="adicionalesGratuitosContainer">
-                            <div class="dynamic-item">
-                                <textarea class="form-control" name="adicionalesGratuitos[]" 
-                                          placeholder="Describe un adicional gratuito (Ej: Salsa de ajo, limones extra, servilletas adicionales)" 
-                                          rows="2"></textarea>
-                                <button type="button" class="btn btn-danger" onclick="eliminarAdicionalGratuito(this)">
-                                    <i class="fas fa-times"></i> Eliminar
-                                </button>
+                        <label class="form-label">¿Cómo deseas proporcionar esta información?</label>
+                        <select id="tipoAdicionalGratuito" class="form-control" onchange="toggleTipoAdicionalGratuito()">
+                            <option value="link">Subir enlace (Google Drive / PDF / imagen) con la lista de adicionales</option>
+                            <option value="manual">Agregar descripciones manualmente</option>
+                        </select>
+                    </div>
+                    
+                    <div id="adicionalGratuitoLinkContainer" style="display: block;">
+                        <div class="form-group">
+                            <label class="form-label" for="adicionalGratuitoLink">
+                                <i class="fas fa-file-pdf"></i> Enlace (Google Drive / PDF / imagen)
+                            </label>
+                            <input type="url" id="adicionalGratuitoLink" name="adicionalGratuitoLink" 
+                                   class="form-control" placeholder="https://drive.google.com/...">
+                            <div class="form-hint">
+                                <i class="fas fa-info-circle"></i> El enlace debe ser público y accesible para todos.
                             </div>
                         </div>
-                        
+                    </div>
+                    
+                    <div id="adicionalGratuitoManualContainer" style="display: none;">
+                        <p style="margin-bottom: 15px; color: var(--gray-600);">Describe cada adicional gratuito:</p>
+                        <div id="adicionalesGratuitosContainer"></div>
                         <div style="text-align: center; margin-top: 20px;">
                             <button type="button" class="btn btn-add" onclick="agregarAdicionalGratuito()">
                                 <i class="fas fa-plus"></i> Agregar Adicional Gratuito
@@ -1327,7 +1171,7 @@
                 </div>
             </div>
 
-            <!-- FASE 4: Personalización Avanzada -->
+            <!-- FASE 4: Personalización Avanzada (orden intercambiado) -->
             <div class="phase-wrapper" data-phase="4">
                 <div class="phase-header">
                     <h2><i class="fas fa-sliders-h"></i> Personalización Avanzada</h2>
@@ -1337,19 +1181,7 @@
                     </p>
                 </div>
                 
-                <div class="form-group">
-                    <label class="form-label" for="modificacionIngredientes">
-                        <i class="fas fa-edit"></i> Modificación de ingredientes
-                    </label>
-                    <textarea id="modificacionIngredientes" name="modificacionIngredientes" 
-                              class="form-control" rows="4" 
-                              placeholder="Escribe cuáles de tus productos pueden tener modificaciones, especifica cuáles. Ej: Hamburguesa sin pan, con lechuga. O hamburguesa sin cebolla."></textarea>
-                    <div class="form-hint">
-                        <i class="fas fa-info-circle"></i> Describe claramente qué modificaciones permites en tus productos
-                    </div>
-                    <div class="char-counter" id="modificacionIngredientesCounter">0/1000 caracteres</div>
-                </div>
-                
+                <!-- PRIMERO: Quitar ingredientes -->
                 <div class="form-group">
                     <label class="form-label" for="quitarIngredientesDetalle">
                         <i class="fas fa-minus-circle"></i> ¿Cuáles de tus productos permiten quitarle ingredientes?
@@ -1362,6 +1194,20 @@
                     </div>
                     <div class="char-counter" id="quitarIngredientesDetalleCounter">0/1000 caracteres</div>
                 </div>
+                
+                <!-- SEGUNDO: Modificación de ingredientes -->
+                <div class="form-group">
+                    <label class="form-label" for="modificacionIngredientes">
+                        <i class="fas fa-edit"></i> Modificación de ingredientes
+                    </label>
+                    <textarea id="modificacionIngredientes" name="modificacionIngredientes" 
+                              class="form-control" rows="4" 
+                              placeholder="Escribe cuáles de tus productos pueden tener modificaciones, especifica cuáles. Ej: Hamburguesa sin pan, con lechuga. O hamburguesa sin cebolla."></textarea>
+                    <div class="form-hint">
+                        <i class="fas fa-info-circle"></i> Describe claramente qué modificaciones permites en tus productos
+                    </div>
+                    <div class="char-counter" id="modificacionIngredientesCounter">0/1000 caracteres</div>
+                </div>
             </div>
 
             <!-- FASE 5: Servicios Logísticos -->
@@ -1369,18 +1215,18 @@
                 <div class="phase-header">
                     <h2><i class="fas fa-shipping-fast"></i> Servicios Logísticos</h2>
                     <p class="phase-description">
-                        Por favor, proporciona un enlace (por ejemplo, a un documento de Google, una imagen o una página web) donde se pueda consultar el listado completo de barrios o zonas a los que realizas entregas, junto con el valor del domicilio para cada uno. Esto asegurará que la IA comunique los costos exactos a tus clientes.
+                        Proporciona un enlace (Google Drive / PDF / imagen) donde se puedan consultar las tarifas de domicilio y zonas de cobertura.
                     </p>
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label" for="linkTarifasBarrios">
-                        <i class="fas fa-link"></i> Enlace al listado de barrios y tarifas
+                        <i class="fas fa-link"></i> Enlace a tarifas de domicilio / cobertura
                     </label>
-                    <input type="url" id="linkTarifasBarrios" name="linkTarifasBarrios" class="form-control" required 
-                           placeholder="https://docs.google.com/document/d/... o https://miempresa.com/zonas-de-domicilio">
+                    <input type="url" id="linkTarifasBarrios" name="linkTarifasBarrios" class="form-control" 
+                           placeholder="https://drive.google.com/...">
                     <div class="form-hint">
-                        <i class="fas fa-info-circle"></i> Asegúrate de que el enlace sea público y accesible para todos.
+                        <i class="fas fa-info-circle"></i> Sube un PDF o imagen con el listado de barrios y los valores de domicilio. El enlace debe ser público y accesible para todos. No es obligatorio.
                     </div>
                 </div>
             </div>
@@ -1404,7 +1250,6 @@
                         <label class="form-label">
                             <i class="fas fa-calendar-check"></i> ¿Tienes sistema de reservas?
                         </label>
-                        <!-- SOLO OPCIONES Sí / No (ELIMINADO Depende) -->
                         <select id="tieneReservas" class="form-control" onchange="toggleReservasDetalle()">
                             <option value="no">No</option>
                             <option value="si">Sí</option>
@@ -1414,10 +1259,13 @@
                     <div id="reservasDetalleContainer" style="display: none; margin-top: 20px;">
                         <div class="form-group">
                             <label class="form-label" for="menuReservasLink">
-                                <i class="fas fa-external-link-alt"></i> Link o plataforma para reservas
+                                <i class="fas fa-external-link-alt"></i> Link o PDF del Brochure de reservas
                             </label>
                             <input type="url" id="menuReservasLink" name="menuReservasLink" 
-                                   class="form-control" placeholder="https://miempresa.com/reservas">
+                                   class="form-control" placeholder="https://drive.google.com/...">
+                            <div class="form-hint">
+                                <i class="fas fa-info-circle"></i> Sube un PDF o imagen con la información de reservas (políticas, horarios, etc.). El enlace debe ser público.
+                            </div>
                         </div>
                         
                         <div class="form-group">
@@ -1428,39 +1276,6 @@
                                       class="form-control" rows="3" 
                                       placeholder="Políticas de cancelación, tiempo máximo de espera..."></textarea>
                             <div class="char-counter" id="politicasReservasCounter">0/500 caracteres</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                <i class="fas fa-money-bill-wave"></i> ¿La reserva tiene costo adicional?
-                            </label>
-                            <select id="reservasCosto" name="reservasCosto" class="form-control" onchange="toggleReservasCostoDetalle()">
-                                <option value="no">No</option>
-                                <option value="si">Sí</option>
-                                <option value="depende">Depende</option>
-                            </select>
-                        </div>
-                        
-                        <!-- CAMPO PARA VALOR CUANDO LA RESPUESTA ES "Sí" -->
-                        <div class="form-group" id="reservasCostoValorContainer" style="display: none;">
-                            <label class="form-label" for="reservasCostoValor">
-                                <i class="fas fa-dollar-sign"></i> Valor del costo adicional
-                            </label>
-                            <input type="number" id="reservasCostoValor" name="reservasCostoValor" 
-                                   class="form-control" placeholder="Ej: 20000" step="1000" min="0">
-                            <div class="form-hint">
-                                <i class="fas fa-info-circle"></i> Ingresa el monto en pesos colombianos
-                            </div>
-                        </div>
-                        
-                        <!-- CAMPO PARA EXPLICACIÓN CUANDO LA RESPUESTA ES "Depende" -->
-                        <div class="form-group" id="reservasCostoDetalleContainer" style="display: none;">
-                            <label class="form-label">
-                                <i class="fas fa-edit"></i> Explica de qué depende el costo
-                            </label>
-                            <textarea id="reservasCostoDetalle" name="reservasCostoDetalle" 
-                                      class="form-control" rows="2" 
-                                      placeholder="Ej: Tiene costo si no se alcanza un consumo mínimo de $100.000 por mesa, o si se reserva en fechas especiales."></textarea>
                         </div>
                     </div>
                 </div>
@@ -1494,7 +1309,7 @@
                 </div>
             </div>
 
-            <!-- FASE 7: Revisión Final (CON RESUMEN VISIBLE PARA EL CLIENTE) -->
+            <!-- FASE 7: Revisión Final -->
             <div class="phase-wrapper" data-phase="7">
                 <div class="phase-header">
                     <h2><i class="fas fa-clipboard-check"></i> Revisión Final</h2>
@@ -1555,7 +1370,7 @@
                 </div>
             </div>
 
-            <!-- PANEL DE ÉXITO (CONFIGURACIÓN ENVIADA) - SIN RESUMEN DETALLADO -->
+            <!-- PANEL DE ÉXITO -->
             <div class="success-panel" id="successPanel">
                 <div class="success-icon">
                     <i class="fas fa-check-circle"></i>
@@ -1565,7 +1380,6 @@
                     Tu configuración ha sido guardada exitosamente en nuestro sistema. 
                     La información se ha registrado correctamente en la base de datos.
                 </p>
-                <!-- ELIMINADO EL BLOQUE successDetails (resumen post-implementación) -->
                 <div class="action-buttons">
                     <button type="button" class="btn btn-primary" onclick="nuevaConfiguracion()">
                         <i class="fas fa-plus-circle"></i> Nueva Configuración
@@ -1576,21 +1390,15 @@
                 </div>
             </div>
 
-            <!-- NAVEGACIÓN ENTRE FASES -->
+            <!-- NAVEGACIÓN -->
             <div class="phase-navigation">
                 <button id="prevPhaseBtn" class="btn btn-secondary" onclick="prevPhase()">
                     <i class="fas fa-arrow-left"></i> Fase Anterior
                 </button>
-                <!-- EL CONTADOR "Fase X de 8" HA SIDO ELIMINADO -->
                 <button id="nextPhaseBtn" class="btn btn-primary" onclick="nextPhase()">
                     Siguiente Fase <i class="fas fa-arrow-right"></i>
                 </button>
-                <button id="submitConfigBtn" class="btn btn-success btn-with-logo" style="display: none;" onclick="enviarConfiguracion()">
-                    <div class="btn-logo">
-                        <!-- CORREGIDO: URL raw del sello -->
-                        <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
-                             alt="Sello IA">
-                    </div>
+                <button id="submitConfigBtn" class="btn-implementar" style="display: none;" onclick="enviarConfiguracion()">
                     <i class="fas fa-rocket"></i> Implementar IA
                 </button>
             </div>
@@ -1607,22 +1415,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        // ========== SISTEMA DE CONFIGURACIÓN UNIVERSO.IA ==========
+        // ========== SISTEMA DE CONFIGURACIÓN UNIVERSO.IA (ACTUALIZADO) ==========
         const SYSTEM = {
             // ⚠️ REEMPLAZA ESTA URL CON LA DE TU GOOGLE APPS SCRIPT
-            SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz4pB_Up21UC7hl9ZAVP50gvKkVPBTUr8Bd3U575SNS-0Ho7Glh-NsXsqhF9qRcHN7vAg/exec',
+            SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwyjgILhx_ZKgNyJD1Y6PJpvJ__ZmVm-lBv4Yn7aUV9cQYrYTBzen5vuy6cAN-CshU4tg/exec',
             currentPhase: 0,
             totalPhases: 8,
             puntosVentaCount: 1,
-            adicionalesCobroCount: 1,
-            adicionalesGratuitosCount: 1,
-            otrosAdicionales: [],
+            adicionalesCobroCount: 0,
+            adicionalesGratuitosCount: 0,
             formData: {},
             configID: null,
             isSubmitted: false
         };
 
-        // Datos de Colombia (departamentos y ciudades)
+        // Datos de Colombia
         const COLOMBIA_DATA = {
             departamentos: {
                 "Amazonas": ["Leticia", "Puerto Nariño"],
@@ -1667,7 +1474,6 @@
             protegerLogo();
         });
 
-        // ========== FUNCIONES PRINCIPALES ==========
         function inicializarSistema() {
             SYSTEM.configID = generarIDUnico();
             inicializarEventos();
@@ -1676,32 +1482,20 @@
             inicializarContadores();
             actualizarNavegacion();
             mostrarFaseActual();
+            toggleTipoAdicionalCobro();
+            toggleTipoAdicionalGratuito();
         }
 
         function inicializarEventos() {
-            // Eventos para los items del menú horizontal
-            document.querySelectorAll('.phase-item-h').forEach(item => {
-                item.addEventListener('click', function() {
-                    const phase = parseInt(this.dataset.phase);
-                    if (phase <= SYSTEM.currentPhase && !SYSTEM.isSubmitted) {
-                        irAFase(phase);
-                    }
-                });
-            });
-            
             document.querySelectorAll('[required]').forEach(input => {
-                input.addEventListener('blur', function() {
-                    validarCampo(this);
-                });
+                input.addEventListener('blur', function() { validarCampo(this); });
             });
             
-            const textareas = ['modificacionIngredientes', 'quitarIngredientesDetalle', 'politicasReservas', 'promociones', 'notasAdicionales'];
+            const textareas = ['quitarIngredientesDetalle', 'modificacionIngredientes', 'politicasReservas', 'promociones', 'notasAdicionales'];
             textareas.forEach(id => {
                 const textarea = document.getElementById(id);
                 if (textarea) {
-                    textarea.addEventListener('input', function() {
-                        actualizarContador(this);
-                    });
+                    textarea.addEventListener('input', function() { actualizarContador(this); });
                     actualizarContador(textarea);
                 }
             });
@@ -1709,12 +1503,12 @@
             const nombreInput = document.getElementById('nombreComercio');
             if (nombreInput) {
                 nombreInput.addEventListener('input', function() {
-                    document.getElementById('nombreEmpresaPreview').textContent = 
-                        this.value || '[Nombre de la Empresa]';
+                    document.getElementById('nombreEmpresaPreview').textContent = this.value || '[Nombre de la Empresa]';
                 });
             }
         }
 
+        // ========== NAVEGACIÓN ==========
         function nextPhase() {
             if (SYSTEM.currentPhase > 0 && !validarFaseActual()) {
                 mostrarMensaje('Por favor, completa todos los campos requeridos', 'error');
@@ -1724,7 +1518,6 @@
                 SYSTEM.currentPhase++;
                 mostrarFaseActual();
                 actualizarNavegacion();
-                // SCROLL HACIA ARRIBA PARA CADA NUEVA FASE
                 document.querySelector('.phase-content').scrollTop = 0;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 if (SYSTEM.currentPhase === SYSTEM.totalPhases - 1) {
@@ -1743,32 +1536,10 @@
             }
         }
 
-        function irAFase(fase) {
-            SYSTEM.currentPhase = fase;
-            mostrarFaseActual();
-            actualizarNavegacion();
-            document.querySelector('.phase-content').scrollTop = 0;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
         function mostrarFaseActual() {
-            document.querySelectorAll('.phase-wrapper').forEach(wrapper => {
-                wrapper.classList.remove('active');
-            });
-            const currentPhaseElement = document.querySelector(`.phase-wrapper[data-phase="${SYSTEM.currentPhase}"]`);
-            if (currentPhaseElement) {
-                currentPhaseElement.classList.add('active');
-            }
-            
-            document.querySelectorAll('.phase-item-h').forEach(item => {
-                const phaseNumber = parseInt(item.dataset.phase);
-                item.classList.remove('active', 'completed');
-                if (phaseNumber === SYSTEM.currentPhase) {
-                    item.classList.add('active');
-                } else if (phaseNumber < SYSTEM.currentPhase) {
-                    item.classList.add('completed');
-                }
-            });
+            document.querySelectorAll('.phase-wrapper').forEach(w => w.classList.remove('active'));
+            const current = document.querySelector(`.phase-wrapper[data-phase="${SYSTEM.currentPhase}"]`);
+            if (current) current.classList.add('active');
             
             const progressPercentage = SYSTEM.currentPhase === 0 ? 0 : (SYSTEM.currentPhase / (SYSTEM.totalPhases - 1)) * 100;
             document.getElementById('progressFill').style.width = `${progressPercentage}%`;
@@ -1791,7 +1562,7 @@
             }
         }
 
-        // ========== FUNCIONES DE UBICACIONES ==========
+        // ========== UBICACIONES ==========
         function actualizarPuntosVenta() {
             const numeroPuntos = parseInt(document.getElementById('numeroPuntos').value) || 1;
             const container = document.getElementById('puntosVentaContainer');
@@ -1812,68 +1583,35 @@
                         <i class="fas fa-store"></i> Establecimiento ${numero}
                     </h4>
                     <div class="form-group" style="margin-bottom: 15px;">
-                        <label class="form-label">
-                            <i class="fas fa-signature"></i> Nombre Comercial
-                        </label>
-                        <input type="text" name="puntoNombre[]" class="form-control" 
-                               placeholder="Ej: Sede Principal" required>
+                        <label class="form-label"><i class="fas fa-signature"></i> Nombre Comercial</label>
+                        <input type="text" name="puntoNombre[]" class="form-control" placeholder="Ej: Sede Principal" required>
                     </div>
-                    
                     <div class="form-group">
-                        <label class="form-label">
-                            <i class="fas fa-flag"></i> Departamento
-                        </label>
-                        <select name="puntoDepartamento[]" class="form-control ubicacion-select" 
-                                data-type="departamento" required 
-                                onchange="cargarCiudades(this)">
+                        <label class="form-label"><i class="fas fa-flag"></i> Departamento</label>
+                        <select name="puntoDepartamento[]" class="form-control ubicacion-select" data-type="departamento" required onchange="cargarCiudades(this)">
                             <option value="">Selecciona departamento</option>
-                            ${Object.keys(COLOMBIA_DATA.departamentos).map(depto => 
-                                `<option value="${depto}">${depto}</option>`
-                            ).join('')}
+                            ${Object.keys(COLOMBIA_DATA.departamentos).map(d => `<option value="${d}">${d}</option>`).join('')}
                         </select>
                     </div>
-                    
                     <div class="form-group">
-                        <label class="form-label">
-                            <i class="fas fa-city"></i> Ciudad/Municipio
-                        </label>
-                        <select name="puntoCiudad[]" class="form-control ubicacion-select" 
-                                data-type="ciudad" required disabled>
+                        <label class="form-label"><i class="fas fa-city"></i> Ciudad/Municipio</label>
+                        <select name="puntoCiudad[]" class="form-control ubicacion-select" data-type="ciudad" required disabled>
                             <option value="">Selecciona departamento primero</option>
                         </select>
                     </div>
-                    
                     <div class="form-group">
-                        <label class="form-label">
-                            <i class="fas fa-map-marker-alt"></i> Dirección
-                        </label>
-                        <input type="text" name="puntoDireccion[]" class="form-control" 
-                               placeholder="Carrera 15 #88-64, Barrio El Poblado">
+                        <label class="form-label"><i class="fas fa-map-marker-alt"></i> Dirección</label>
+                        <input type="text" name="puntoDireccion[]" class="form-control" placeholder="Carrera 15 #88-64, Barrio El Poblado">
                     </div>
                 </div>
-                ${SYSTEM.puntosVentaCount > 1 ? `
-                <div style="display: flex; align-items: center;">
-                    <button type="button" class="btn btn-danger" onclick="eliminarPuntoVenta(this)">
-                        <i class="fas fa-trash"></i> Eliminar
-                    </button>
-                </div>
-                ` : ''}
+                ${SYSTEM.puntosVentaCount > 1 ? `<div style="display: flex; align-items: center;"><button type="button" class="btn btn-danger" onclick="eliminarPuntoVenta(this)"><i class="fas fa-trash"></i> Eliminar</button></div>` : ''}
             `;
             container.appendChild(div);
-            setTimeout(() => {
-                $(div).find('.ubicacion-select').select2({
-                    placeholder: "Buscar...",
-                    allowClear: true,
-                    width: '100%'
-                });
-            }, 100);
+            setTimeout(() => $(div).find('.ubicacion-select').select2({ placeholder: "Buscar...", allowClear: true, width: '100%' }), 100);
         }
 
         function agregarPuntoVentaExtra() {
-            if (SYSTEM.puntosVentaCount >= 20) {
-                mostrarMensaje('Máximo 20 establecimientos permitidos', 'warning');
-                return;
-            }
+            if (SYSTEM.puntosVentaCount >= 20) { mostrarMensaje('Máximo 20 establecimientos permitidos', 'warning'); return; }
             SYSTEM.puntosVentaCount++;
             agregarPuntoVenta(SYSTEM.puntosVentaCount);
             document.getElementById('numeroPuntos').value = SYSTEM.puntosVentaCount;
@@ -1887,22 +1625,18 @@
                 document.getElementById('numeroPuntos').value = SYSTEM.puntosVentaCount;
                 document.querySelectorAll('.dynamic-item').forEach((item, index) => {
                     const title = item.querySelector('h4');
-                    if (title) {
-                        title.innerHTML = `<i class="fas fa-store"></i> Establecimiento ${index + 1}`;
-                    }
+                    if (title) title.innerHTML = `<i class="fas fa-store"></i> Establecimiento ${index + 1}`;
                 });
                 mostrarMensaje('Establecimiento eliminado', 'info');
             }
         }
 
-        function cargarCiudades(selectElement) {
-            const departamento = selectElement.value;
-            const ciudadSelect = selectElement.closest('.dynamic-item').querySelector('select[data-type="ciudad"]');
-            
-            if (departamento && COLOMBIA_DATA.departamentos[departamento]) {
-                const ciudades = COLOMBIA_DATA.departamentos[departamento];
-                ciudadSelect.innerHTML = '<option value="">Selecciona ciudad</option>' +
-                    ciudades.map(ciudad => `<option value="${ciudad}">${ciudad}</option>`).join('');
+        function cargarCiudades(select) {
+            const depto = select.value;
+            const ciudadSelect = select.closest('.dynamic-item').querySelector('select[data-type="ciudad"]');
+            if (depto && COLOMBIA_DATA.departamentos[depto]) {
+                ciudadSelect.innerHTML = '<option value="">Selecciona ciudad</option>' + 
+                    COLOMBIA_DATA.departamentos[depto].map(c => `<option value="${c}">${c}</option>`).join('');
                 ciudadSelect.disabled = false;
                 $(ciudadSelect).val(null).trigger('change');
             } else {
@@ -1912,36 +1646,43 @@
             }
         }
 
-        // ========== FUNCIONES DE ADICIONALES ==========
+        // ========== TOGGLE DE TIPOS DE ADICIONALES ==========
+        function toggleTipoAdicionalCobro() {
+            const tipo = document.getElementById('tipoAdicionalCobro').value;
+            document.getElementById('adicionalCobroLinkContainer').style.display = tipo === 'link' ? 'block' : 'none';
+            document.getElementById('adicionalCobroManualContainer').style.display = tipo === 'manual' ? 'block' : 'none';
+        }
+
+        function toggleTipoAdicionalGratuito() {
+            const tipo = document.getElementById('tipoAdicionalGratuito').value;
+            document.getElementById('adicionalGratuitoLinkContainer').style.display = tipo === 'link' ? 'block' : 'none';
+            document.getElementById('adicionalGratuitoManualContainer').style.display = tipo === 'manual' ? 'block' : 'none';
+        }
+
+        // ========== ADICIONALES CON PAGO (MANUAL) ==========
         function agregarAdicionalCobro() {
             const container = document.getElementById('adicionalesCobroContainer');
             const div = document.createElement('div');
             div.className = 'dynamic-item';
             div.innerHTML = `
-                <input type="text" placeholder="Nombre del adicional (Ej: Tartara)" 
-                       class="form-control" name="adicionalCobroNombre[]" required>
+                <input type="text" placeholder="Nombre del adicional (Ej: Tartara)" class="form-control" name="adicionalCobroNombre[]" required>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span style="font-weight: bold; color: #0e9f6e; font-size: 1.2rem;">$</span>
-                    <input type="number" placeholder="0.00" step="0.01" min="0"
-                           class="form-control" name="adicionalCobroPrecio[]" required>
+                    <input type="number" placeholder="0.00" step="0.01" min="0" class="form-control" name="adicionalCobroPrecio[]" required>
                 </div>
-                <button type="button" class="btn btn-danger" onclick="eliminarAdicionalCobro(this)">
-                    <i class="fas fa-times"></i> Eliminar
-                </button>
+                <button type="button" class="btn btn-danger" onclick="eliminarAdicionalCobro(this)"><i class="fas fa-times"></i> Eliminar</button>
             `;
             container.appendChild(div);
             SYSTEM.adicionalesCobroCount++;
-            mostrarMensaje('Adicional con pago agregado', 'success');
         }
 
         function eliminarAdicionalCobro(button) {
-            if (SYSTEM.adicionalesCobroCount > 1) {
-                button.closest('.dynamic-item').remove();
-                SYSTEM.adicionalesCobroCount--;
-                mostrarMensaje('Adicional con pago eliminado', 'info');
-            }
+            button.closest('.dynamic-item').remove();
+            SYSTEM.adicionalesCobroCount--;
+            if (SYSTEM.adicionalesCobroCount < 0) SYSTEM.adicionalesCobroCount = 0;
         }
 
+        // ========== ADICIONALES GRATUITOS (MANUAL) ==========
         function agregarAdicionalGratuito() {
             const container = document.getElementById('adicionalesGratuitosContainer');
             const div = document.createElement('div');
@@ -1950,23 +1691,19 @@
                 <textarea class="form-control" name="adicionalesGratuitos[]" 
                           placeholder="Describe un adicional gratuito (Ej: Salsa de ajo, limones extra, servilletas adicionales)" 
                           rows="2"></textarea>
-                <button type="button" class="btn btn-danger" onclick="eliminarAdicionalGratuito(this)">
-                    <i class="fas fa-times"></i> Eliminar
-                </button>
+                <button type="button" class="btn btn-danger" onclick="eliminarAdicionalGratuito(this)"><i class="fas fa-times"></i> Eliminar</button>
             `;
             container.appendChild(div);
             SYSTEM.adicionalesGratuitosCount++;
-            mostrarMensaje('Adicional gratuito agregado', 'success');
         }
 
         function eliminarAdicionalGratuito(button) {
-            if (SYSTEM.adicionalesGratuitosCount > 1) {
-                button.closest('.dynamic-item').remove();
-                SYSTEM.adicionalesGratuitosCount--;
-                mostrarMensaje('Adicional gratuito eliminado', 'info');
-            }
+            button.closest('.dynamic-item').remove();
+            SYSTEM.adicionalesGratuitosCount--;
+            if (SYSTEM.adicionalesGratuitosCount < 0) SYSTEM.adicionalesGratuitosCount = 0;
         }
 
+        // ========== SECTOR OTRO ==========
         function toggleSectorOtro() {
             const sectorSelect = document.getElementById('sectorNegocio');
             const otroContainer = document.getElementById('sectorOtroContainer');
@@ -1980,115 +1717,60 @@
             }
         }
 
-        // ========== FUNCIONES DE RESERVAS ==========
+        // ========== RESERVAS SIMPLIFICADO ==========
         function toggleReservasDetalle() {
             const tieneReservas = document.getElementById('tieneReservas').value;
             const detalleContainer = document.getElementById('reservasDetalleContainer');
-            detalleContainer.style.display = (tieneReservas === 'si') ? 'block' : 'none';
+            detalleContainer.style.display = tieneReservas === 'si' ? 'block' : 'none';
         }
 
-        function toggleReservasCostoDetalle() {
-            const costoReserva = document.getElementById('reservasCosto').value;
-            const valorContainer = document.getElementById('reservasCostoValorContainer');
-            const detalleContainer = document.getElementById('reservasCostoDetalleContainer');
-            
-            if (costoReserva === 'si') {
-                valorContainer.style.display = 'block';
-                detalleContainer.style.display = 'none';
-                document.getElementById('reservasCostoValor').setAttribute('required', 'required');
-                document.getElementById('reservasCostoDetalle').removeAttribute('required');
-            } else if (costoReserva === 'depende') {
-                valorContainer.style.display = 'none';
-                detalleContainer.style.display = 'block';
-                document.getElementById('reservasCostoDetalle').setAttribute('required', 'required');
-                document.getElementById('reservasCostoValor').removeAttribute('required');
-            } else {
-                valorContainer.style.display = 'none';
-                detalleContainer.style.display = 'none';
-                document.getElementById('reservasCostoValor').removeAttribute('required');
-                document.getElementById('reservasCostoDetalle').removeAttribute('required');
-            }
-        }
-
-        // ========== GENERAR VISTA PREVIA (FASE 7) ==========
+        // ========== GENERAR VISTA PREVIA ==========
         function generarVistaPrevia() {
             const container = document.getElementById('previewContainer');
-            
-            // Recolectar todos los datos del formulario
-            const formData = new FormData();
-            const inputs = document.querySelectorAll('input, select, textarea');
-            inputs.forEach(input => {
-                if (input.type === 'checkbox' || input.type === 'radio') {
-                    if (input.checked) {
-                        formData.append(input.name, input.value);
-                    }
-                } else if (input.name) {
-                    formData.append(input.name, input.value);
-                }
-            });
-            
-            const data = {};
-            for (let [key, value] of formData.entries()) {
-                if (key.endsWith('[]')) {
-                    const baseKey = key.slice(0, -2);
-                    if (!data[baseKey]) data[baseKey] = [];
-                    data[baseKey].push(value);
-                } else {
-                    data[key] = value;
-                }
-            }
+            const data = recolectarDatosFormulario();
             
             let sectorFinal = data.sectorNegocio || '';
-            if (sectorFinal === 'otros' && data.sectorOtro) {
-                sectorFinal = data.sectorOtro;
+            if (sectorFinal === 'otros' && data.sectorOtro) sectorFinal = data.sectorOtro;
+            
+            let adicionalesCobroTexto = '';
+            if (data.tipoAdicionalCobro === 'link') {
+                adicionalesCobroTexto = data.adicionalCobroLink ? `Enlace: ${data.adicionalCobroLink}` : 'No proporcionado';
+            } else {
+                if (data.adicionalCobroNombre && data.adicionalCobroNombre.length) {
+                    adicionalesCobroTexto = data.adicionalCobroNombre.map((nombre, i) => {
+                        const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
+                        return `${nombre}: $${precio}`;
+                    }).join('<br>');
+                } else {
+                    adicionalesCobroTexto = 'Ninguno';
+                }
             }
             
-            const adicionalesCobro = data.adicionalCobroNombre ? data.adicionalCobroNombre.map((nombre, i) => {
-                const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
-                return `${nombre}: $${precio}`;
-            }).join('<br>') : 'Ninguno';
+            let adicionalesGratuitosTexto = '';
+            if (data.tipoAdicionalGratuito === 'link') {
+                adicionalesGratuitosTexto = data.adicionalGratuitoLink ? `Enlace: ${data.adicionalGratuitoLink}` : 'No proporcionado';
+            } else {
+                if (data.adicionalesGratuitos && data.adicionalesGratuitos.length) {
+                    adicionalesGratuitosTexto = data.adicionalesGratuitos.join('<br>');
+                } else {
+                    adicionalesGratuitosTexto = 'Ninguno';
+                }
+            }
             
-            const adicionalesGratuitos = data.adicionalesGratuitos ? data.adicionalesGratuitos.join('<br>') : 'Ninguno';
-            
-            const tieneReservas = document.getElementById('tieneReservas').value;
             let reservasInfo = 'No tiene sistema de reservas';
-            if (tieneReservas === 'si') {
-                reservasInfo = `Sí tiene reservas${data.menuReservasLink ? `<br>Link: ${data.menuReservasLink}` : ''}`;
-                if (data.politicasReservas) {
-                    reservasInfo += `<br>Políticas: ${data.politicasReservas}`;
-                }
-                if (data.reservasCosto) {
-                    reservasInfo += `<br>Costo: ${data.reservasCosto}`;
-                    if (data.reservasCosto === 'si' && data.reservasCostoValor) {
-                        reservasInfo += `<br>Valor: $${data.reservasCostoValor}`;
-                    }
-                    if (data.reservasCosto === 'depende' && data.reservasCostoDetalle) {
-                        reservasInfo += `<br>Detalle: ${data.reservasCostoDetalle}`;
-                    }
-                }
+            if (data.tieneReservas === 'si') {
+                reservasInfo = `Sí tiene reservas<br>Brochure: ${data.menuReservasLink || 'No especificado'}`;
+                if (data.politicasReservas) reservasInfo += `<br>Políticas: ${data.politicasReservas}`;
             }
             
             let html = `
                 <div class="preview-section">
                     <h4><i class="fas fa-building"></i> Perfil Empresarial</h4>
-                    <div class="preview-item">
-                        <span class="preview-label">Razón Social:</span>
-                        <span class="preview-value">${data.nombreComercio || 'No especificado'}</span>
-                    </div>
-                    <div class="preview-item">
-                        <span class="preview-label">EMAIL:</span>
-                        <span class="preview-value">${data.emailContacto || 'No especificado'}</span>
-                    </div>
-                    <div class="preview-item">
-                        <span class="preview-label">Teléfono:</span>
-                        <span class="preview-value">${data.telefonoContacto || 'No especificado'}</span>
-                    </div>
-                    <div class="preview-item">
-                        <span class="preview-label">Sector:</span>
-                        <span class="preview-value">${sectorFinal || 'No especificado'}</span>
-                    </div>
+                    <div class="preview-item"><span class="preview-label">Razón Social:</span><span class="preview-value">${data.nombreComercio || 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">EMAIL:</span><span class="preview-value">${data.emailContacto || 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">Teléfono:</span><span class="preview-value">${data.telefonoContacto || 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">Sector:</span><span class="preview-value">${sectorFinal || 'No especificado'}</span></div>
                 </div>
-                
                 <div class="preview-section">
                     <h4><i class="fas fa-map-marked-alt"></i> Establecimientos (${data.puntoNombre ? data.puntoNombre.length : 0})</h4>
             `;
@@ -2098,117 +1780,70 @@
                     const depto = data.puntoDepartamento && data.puntoDepartamento[i] ? data.puntoDepartamento[i] : '';
                     const ciudad = data.puntoCiudad && data.puntoCiudad[i] ? data.puntoCiudad[i] : '';
                     const direccion = data.puntoDireccion && data.puntoDireccion[i] ? data.puntoDireccion[i] : '';
-                    
-                    html += `
-                        <div class="preview-item">
-                            <span class="preview-label">📍 ${nombre}:</span>
-                            <span class="preview-value">${depto}${ciudad ? ` - ${ciudad}` : ''}${direccion ? `<br><small>${direccion}</small>` : ''}</span>
-                        </div>
-                    `;
+                    html += `<div class="preview-item"><span class="preview-label">📍 ${nombre}:</span><span class="preview-value">${depto}${ciudad ? ` - ${ciudad}` : ''}${direccion ? `<br><small>${direccion}</small>` : ''}</span></div>`;
                 });
             }
             
             html += `
                 </div>
-                
                 <div class="preview-section">
                     <h4><i class="fas fa-boxes"></i> Gestión de Productos</h4>
-                    <div class="preview-item">
-                        <span class="preview-label">Catálogo Digital:</span>
-                        <span class="preview-value">${data.menuLink ? `<a href="${data.menuLink}" target="_blank" style="color: var(--primary-color);">Ver catálogo</a>` : 'No especificado'}</span>
-                    </div>
-                    <div class="preview-item">
-                        <span class="preview-label">Adicionales con Pago:</span>
-                        <span class="preview-value">${adicionalesCobro}</span>
-                    </div>
-                    <div class="preview-item">
-                        <span class="preview-label">Adicionales Gratuitos:</span>
-                        <span class="preview-value">${adicionalesGratuitos}</span>
-                    </div>
+                    <div class="preview-item"><span class="preview-label">Catálogo Digital:</span><span class="preview-value">${data.menuLink ? `<a href="${data.menuLink}" target="_blank">Ver catálogo</a>` : 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">Adicionales con Pago:</span><span class="preview-value">${adicionalesCobroTexto}</span></div>
+                    <div class="preview-item"><span class="preview-label">Adicionales Gratuitos:</span><span class="preview-value">${adicionalesGratuitosTexto}</span></div>
                 </div>
-                
                 <div class="preview-section">
                     <h4><i class="fas fa-sliders-h"></i> Personalización</h4>
-                    <div class="preview-item">
-                        <span class="preview-label">Modificación Ingredientes:</span>
-                        <span class="preview-value">${data.modificacionIngredientes || 'No especificado'}</span>
-                    </div>
-                    <div class="preview-item">
-                        <span class="preview-label">Quitar Ingredientes:</span>
-                        <span class="preview-value">${data.quitarIngredientesDetalle || 'No especificado'}</span>
-                    </div>
+                    <div class="preview-item"><span class="preview-label">Quitar Ingredientes:</span><span class="preview-value">${data.quitarIngredientesDetalle || 'No especificado'}</span></div>
+                    <div class="preview-item"><span class="preview-label">Modificación Ingredientes:</span><span class="preview-value">${data.modificacionIngredientes || 'No especificado'}</span></div>
                 </div>
-                
                 <div class="preview-section">
                     <h4><i class="fas fa-shipping-fast"></i> Servicios Logísticos</h4>
-                    <div class="preview-item">
-                        <span class="preview-label">Link Tarifas Barrios:</span>
-                        <span class="preview-value">${data.linkTarifasBarrios ? `<a href="${data.linkTarifasBarrios}" target="_blank" style="color: var(--primary-color);">Ver tarifas</a>` : 'No especificado'}</span>
-                    </div>
+                    <div class="preview-item"><span class="preview-label">Link Tarifas Barrios:</span><span class="preview-value">${data.linkTarifasBarrios ? `<a href="${data.linkTarifasBarrios}" target="_blank">Ver tarifas</a>` : 'No especificado'}</span></div>
                 </div>
-                
                 <div class="preview-section">
                     <h4><i class="fas fa-chart-line"></i> Estrategias</h4>
-                    <div class="preview-item">
-                        <span class="preview-label">Sistema de Reservas:</span>
-                        <span class="preview-value">${reservasInfo}</span>
-                    </div>
+                    <div class="preview-item"><span class="preview-label">Sistema de Reservas:</span><span class="preview-value">${reservasInfo}</span></div>
             `;
             
             if (data.promociones) {
-                const promocionesResumen = data.promociones.length > 100 ? data.promociones.substring(0, 100) + '...' : data.promociones;
-                html += `
-                    <div class="preview-item">
-                        <span class="preview-label">Campañas Activas:</span>
-                        <span class="preview-value">${promocionesResumen}</span>
-                    </div>
-                `;
+                const promo = data.promociones.length > 100 ? data.promociones.substring(0,100)+'...' : data.promociones;
+                html += `<div class="preview-item"><span class="preview-label">Campañas Activas:</span><span class="preview-value">${promo}</span></div>`;
             }
-            
             html += `</div>`;
             
             container.innerHTML = html;
-            
             SYSTEM.formData = data;
-            SYSTEM.formData.sectorFinal = sectorFinal;
-            SYSTEM.formData.adicionalesCobro = adicionalesCobro;
-            SYSTEM.formData.adicionalesGratuitos = adicionalesGratuitos;
-            SYSTEM.formData.reservasInfo = reservasInfo;
+        }
+
+        // ========== RECOLECTOR DE DATOS ==========
+        function recolectarDatosFormulario() {
+            const formData = new FormData();
+            document.querySelectorAll('input, select, textarea').forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    if (input.checked) formData.append(input.name, input.value);
+                } else if (input.name) {
+                    formData.append(input.name, input.value);
+                }
+            });
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                if (key.endsWith('[]')) {
+                    const baseKey = key.slice(0,-2);
+                    if (!data[baseKey]) data[baseKey] = [];
+                    data[baseKey].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+            return data;
         }
 
         // ========== ENVÍO A GOOGLE SHEETS ==========
         async function enviarConfiguracion() {
             mostrarCarga(true, 'Guardando configuración...');
-            
             try {
-                const formData = new FormData();
-                const inputs = document.querySelectorAll('input, select, textarea');
-                inputs.forEach(input => {
-                    if (input.type === 'checkbox' || input.type === 'radio') {
-                        if (input.checked) formData.append(input.name, input.value);
-                    } else if (input.name) {
-                        formData.append(input.name, input.value);
-                    }
-                });
-                
-                const data = {};
-                for (let [key, value] of formData.entries()) {
-                    if (key.endsWith('[]')) {
-                        const baseKey = key.slice(0, -2);
-                        if (!data[baseKey]) data[baseKey] = [];
-                        data[baseKey].push(value);
-                    } else {
-                        data[key] = value;
-                    }
-                }
-                
-                // Procesar arrays para texto plano
-                const adicionalesCobroTexto = data.adicionalCobroNombre ? data.adicionalCobroNombre.map((nombre, i) => {
-                    const precio = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
-                    return `${nombre}: $${precio}`;
-                }).join('; ') : '';
-                
-                const adicionalesGratuitosTexto = data.adicionalesGratuitos ? data.adicionalesGratuitos.join('; ') : '';
+                const data = recolectarDatosFormulario();
                 
                 const establecimientos = data.puntoNombre ? data.puntoNombre.map((nombre, i) => {
                     const depto = data.puntoDepartamento && data.puntoDepartamento[i] ? data.puntoDepartamento[i] : '';
@@ -2216,6 +1851,31 @@
                     const direccion = data.puntoDireccion && data.puntoDireccion[i] ? data.puntoDireccion[i] : '';
                     return `${nombre} | ${depto} | ${ciudad} | ${direccion}`;
                 }).join(' || ') : '';
+                
+                let adicionalesConPagoTipo = data.tipoAdicionalCobro || '';
+                let adicionalesConPagoLink = '';
+                let adicionalesConPagoLista = '';
+                if (data.tipoAdicionalCobro === 'link') {
+                    adicionalesConPagoLink = data.adicionalCobroLink || '';
+                } else {
+                    if (data.adicionalCobroNombre && data.adicionalCobroNombre.length) {
+                        adicionalesConPagoLista = data.adicionalCobroNombre.map((n, i) => {
+                            const p = data.adicionalCobroPrecio && data.adicionalCobroPrecio[i] ? parseFloat(data.adicionalCobroPrecio[i]).toFixed(2) : '0.00';
+                            return `${n}: $${p}`;
+                        }).join('; ');
+                    }
+                }
+                
+                let adicionalesGratuitosTipo = data.tipoAdicionalGratuito || '';
+                let adicionalesGratuitosLink = '';
+                let adicionalesGratuitosLista = '';
+                if (data.tipoAdicionalGratuito === 'link') {
+                    adicionalesGratuitosLink = data.adicionalGratuitoLink || '';
+                } else {
+                    if (data.adicionalesGratuitos && data.adicionalesGratuitos.length) {
+                        adicionalesGratuitosLista = data.adicionalesGratuitos.join('; ');
+                    }
+                }
                 
                 const payload = {
                     timestamp: new Date().toISOString(),
@@ -2230,16 +1890,17 @@
                     numero_establecimientos: document.getElementById('numeroPuntos').value || '1',
                     establecimientos: establecimientos,
                     enlace_catalogo: data.menuLink || '',
-                    adicionales_con_pago: adicionalesCobroTexto,
-                    adicionales_gratuitos: adicionalesGratuitosTexto,
-                    modificacion_ingredientes: data.modificacionIngredientes || '',
+                    adicionales_con_pago_tipo: adicionalesConPagoTipo,
+                    adicionales_con_pago_link: adicionalesConPagoLink,
+                    adicionales_con_pago_lista: adicionalesConPagoLista,
+                    adicionales_gratuitos_tipo: adicionalesGratuitosTipo,
+                    adicionales_gratuitos_link: adicionalesGratuitosLink,
+                    adicionales_gratuitos_lista: adicionalesGratuitosLista,
                     quitar_ingredientes_detalle: data.quitarIngredientesDetalle || '',
+                    modificacion_ingredientes: data.modificacionIngredientes || '',
                     link_tarifas_barrios: data.linkTarifasBarrios || '',
                     tiene_reservas: data.tieneReservas || '',
                     menuReservasLink: data.menuReservasLink || '',
-                    reservas_costo: data.reservasCosto || '',
-                    reservas_costo_valor: data.reservasCostoValor || '',
-                    reservas_costo_detalle: data.reservasCostoDetalle || '',
                     politicas_reservas: data.politicasReservas || '',
                     promociones: data.promociones || '',
                     calendario_promocional: data.horarioPromociones || '',
@@ -2279,33 +1940,35 @@
         function nuevaConfiguracion() {
             SYSTEM.currentPhase = 0;
             SYSTEM.puntosVentaCount = 1;
-            SYSTEM.adicionalesCobroCount = 1;
-            SYSTEM.adicionalesGratuitosCount = 1;
-            SYSTEM.otrosAdicionales = [];
+            SYSTEM.adicionalesCobroCount = 0;
+            SYSTEM.adicionalesGratuitosCount = 0;
             SYSTEM.formData = {};
             SYSTEM.configID = generarIDUnico();
             SYSTEM.isSubmitted = false;
             
             document.querySelectorAll('input, select, textarea').forEach(element => {
-                if (element.type === 'checkbox' || element.type === 'radio') {
-                    element.checked = false;
-                } else if (element.type !== 'button' && element.type !== 'submit') {
-                    element.value = '';
-                }
+                if (element.type === 'checkbox' || element.type === 'radio') element.checked = false;
+                else if (element.type !== 'button' && element.type !== 'submit') element.value = '';
             });
             
             document.getElementById('successPanel').classList.remove('active');
             document.querySelector('.phase-navigation').style.display = 'flex';
             document.getElementById('numeroPuntos').value = 1;
             actualizarPuntosVenta();
+            document.getElementById('adicionalesCobroContainer').innerHTML = '';
+            document.getElementById('adicionalesGratuitosContainer').innerHTML = '';
+            document.getElementById('tipoAdicionalCobro').value = 'link';
+            document.getElementById('tipoAdicionalGratuito').value = 'link';
+            toggleTipoAdicionalCobro();
+            toggleTipoAdicionalGratuito();
+            
             mostrarFaseActual();
             actualizarNavegacion();
-            document.querySelector('.phase-content').scrollTop = 0;
             window.scrollTo({ top: 0, behavior: 'smooth' });
             mostrarMensaje('Sistema reiniciado. ¡Comienza una nueva configuración!', 'success');
         }
 
-        // ========== CERTIFICADO CON MARCA DE AGUA Y LOGO GRANDE ==========
+        // ========== IMPRIMIR CERTIFICADO (con marca de agua del sello) ==========
         function imprimirResumen() {
             const ventana = window.open('', '_blank');
             const nombreEmpresa = SYSTEM.formData.nombreComercio || 'Empresa';
@@ -2319,107 +1982,41 @@
                 <head>
                     <title>Certificado IA - ${nombreEmpresa}</title>
                     <style>
-                        body {
-                            font-family: 'Montserrat', Arial, sans-serif;
-                            margin: 0;
-                            padding: 40px;
-                            background: #f9fafb;
-                            position: relative;
-                        }
-                        .watermark {
-                            position: fixed;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%) rotate(-15deg);
-                            opacity: 0.1;
-                            z-index: 0;
-                            width: 500px;
-                            pointer-events: none;
-                        }
-                        .certificate {
-                            position: relative;
-                            z-index: 10;
-                            background: white;
-                            border: 2px solid #8BC34A;
-                            border-radius: 24px;
-                            padding: 50px;
-                            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-                            max-width: 900px;
-                            margin: 0 auto;
-                        }
-                        .main-logo {
-                            text-align: center;
-                            margin-bottom: 30px;
-                        }
-                        .main-logo img {
-                            max-width: 300px;
-                            height: auto;
-                        }
-                        h1 {
-                            color: #8BC34A;
-                            border-bottom: 3px solid #8BC34A;
-                            padding-bottom: 15px;
-                            text-align: center;
-                            font-size: 2.5rem;
-                        }
-                        .section {
-                            margin: 30px 0;
-                        }
-                        .label {
-                            font-weight: 600;
-                            color: #374151;
-                        }
-                        .value {
-                            margin-left: 10px;
-                            color: #1f2937;
-                        }
-                        .footer {
-                            margin-top: 50px;
-                            text-align: center;
-                            font-size: 12px;
-                            color: #6b7280;
-                            border-top: 1px solid #e5e7eb;
-                            padding-top: 30px;
-                        }
-                        .signature {
-                            margin-top: 40px;
-                            text-align: right;
-                            font-style: italic;
-                        }
+                        body { font-family: 'Montserrat', Arial, sans-serif; margin: 0; padding: 40px; background: #f9fafb; position: relative; }
+                        .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); opacity: 0.15; z-index: 0; width: 500px; pointer-events: none; }
+                        .certificate { position: relative; z-index: 10; background: white; border: 2px solid #8BC34A; border-radius: 24px; padding: 50px; box-shadow: 0 20px 30px rgba(0,0,0,0.1); max-width: 900px; margin: 0 auto; }
+                        .main-logo { text-align: center; margin-bottom: 30px; }
+                        .main-logo img { max-width: 300px; height: auto; }
+                        h1 { color: #8BC34A; border-bottom: 3px solid #8BC34A; padding-bottom: 15px; text-align: center; font-size: 2.5rem; }
+                        .section { margin: 30px 0; }
+                        .label { font-weight: 600; color: #374151; }
+                        .value { margin-left: 10px; color: #1f2937; }
+                        .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #e5e7eb; padding-top: 30px; }
+                        .signature { margin-top: 40px; text-align: right; font-style: italic; }
                     </style>
                 </head>
                 <body>
-                    <!-- MARCA DE AGUA: SELLO (raw) -->
-                    <img class="watermark" src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" 
-                         alt="Sello IA">
-                    
+                    <img class="watermark" src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO%20-%20IA%20-%20V%20-%20SELLO_Mesa%20de%20trabajo%201%20copia%203.png" alt="Sello IA">
                     <div class="certificate">
-                        <!-- LOGO PRINCIPAL GRANDE (raw) -->
                         <div class="main-logo">
-                            <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" 
-                                 alt="Universo.IA">
+                            <img src="https://raw.githubusercontent.com/universoploperaciones-collab/UNIVERSO.IA/main/UNIVERSO.IA.png" alt="Universo.IA">
                         </div>
-                        
                         <h1>Certificado de Configuración IA</h1>
-                        
                         <div class="section">
                             <p><span class="label">ID de Configuración:</span> <span class="value">${id}</span></p>
                             <p><span class="label">Fecha de emisión:</span> <span class="value">${fecha} - ${hora}</span></p>
                             <p><span class="label">Empresa:</span> <span class="value">${nombreEmpresa}</span></p>
                             <p><span class="label">Email corporativo:</span> <span class="value">${email}</span></p>
                         </div>
-                        
                         <div class="section">
                             <p style="text-align: center; font-weight: 500; color: #8BC34A;">
                                 La empresa <strong>Universo.IA</strong> certifica que se ha completado la configuración del asistente de inteligencia artificial para la entidad arriba mencionada, de acuerdo con los parámetros establecidos en el sistema.
                             </p>
                         </div>
-                        
                         <div class="signature">
                             <p>Generado automáticamente por el sistema</p>
                             <p>${fecha} - ${hora}</p>
                         </div>
-                        
                         <div class="footer">
                             <p>Documento oficial del Sistema Universo.IA</p>
                             <p>© ${new Date().getFullYear()} - Todos los derechos reservados</p>
@@ -2447,14 +2044,13 @@
             messageDiv.style.display = 'block';
             setTimeout(() => {
                 messageDiv.style.animation = 'slideInRight 0.3s ease-out reverse';
-                setTimeout(() => { if (messageDiv.parentNode) messageDiv.parentNode.removeChild(messageDiv); }, 300);
+                setTimeout(() => messageDiv.parentNode?.removeChild(messageDiv), 300);
             }, 5000);
         }
 
         function mostrarCarga(mostrar, texto = 'Procesando...') {
-            const overlay = document.getElementById('loadingOverlay');
             document.getElementById('loadingText').textContent = texto;
-            overlay.style.display = mostrar ? 'flex' : 'none';
+            document.getElementById('loadingOverlay').style.display = mostrar ? 'flex' : 'none';
         }
 
         function inicializarSelect2() {
@@ -2462,22 +2058,16 @@
         }
 
         function inicializarContadores() {
-            const contadores = {
-                'modificacionIngredientes': 1000,
-                'quitarIngredientesDetalle': 1000,
-                'politicasReservas': 500,
-                'promociones': 1000,
-                'notasAdicionales': 500
-            };
+            const contadores = { 'quitarIngredientesDetalle':1000, 'modificacionIngredientes':1000, 'politicasReservas':500, 'promociones':1000, 'notasAdicionales':500 };
             Object.keys(contadores).forEach(id => {
-                const textarea = document.getElementById(id);
-                if (textarea) {
-                    const contador = document.getElementById(`${id}Counter`);
-                    if (contador) {
+                const ta = document.getElementById(id);
+                if (ta) {
+                    const c = document.getElementById(`${id}Counter`);
+                    if (c) {
                         const max = contadores[id];
-                        const actual = textarea.value.length;
-                        contador.textContent = `${actual}/${max} caracteres`;
-                        actualizarEstadoContador(contador, actual, max);
+                        const actual = ta.value.length;
+                        c.textContent = `${actual}/${max} caracteres`;
+                        actualizarEstadoContador(c, actual, max);
                     }
                 }
             });
@@ -2491,40 +2081,37 @@
             const actual = textarea.value.length;
             contador.textContent = `${actual}/${max} caracteres`;
             actualizarEstadoContador(contador, actual, max);
+            if (actual > max) {
+                textarea.value = textarea.value.substring(0, max);
+                contador.textContent = `${max}/${max} caracteres`;
+                mostrarMensaje(`Límite de ${max} caracteres alcanzado`, 'warning');
+            }
         }
 
         function actualizarEstadoContador(contador, actual, max) {
-            contador.classList.remove('warning', 'danger');
+            contador.classList.remove('warning','danger');
             if (actual > max * 0.9) contador.classList.add('warning');
-            if (actual > max) {
-                contador.classList.add('danger');
-                const textarea = document.getElementById(contador.id.replace('Counter', ''));
-                if (textarea) {
-                    textarea.value = textarea.value.substring(0, max);
-                    contador.textContent = `${max}/${max} caracteres`;
-                    mostrarMensaje(`Límite de ${max} caracteres alcanzado`, 'warning');
-                }
-            }
+            if (actual > max) contador.classList.add('danger');
         }
 
         function generarIDUnico() {
             const timestamp = Date.now().toString(36);
-            const random = Math.random().toString(36).substr(2, 5);
+            const random = Math.random().toString(36).substr(2,5);
             return `IA-${timestamp}-${random}`.toUpperCase();
         }
 
         function crearParticulas() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                const size = Math.random() * 100 + 50;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.opacity = Math.random() * 0.05 + 0.02;
-                container.appendChild(particle);
+            for (let i=0; i<20; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random()*100+50;
+                p.style.width = `${size}px`;
+                p.style.height = `${size}px`;
+                p.style.left = `${Math.random()*100}%`;
+                p.style.top = `${Math.random()*100}%`;
+                p.style.opacity = Math.random()*0.05+0.02;
+                container.appendChild(p);
             }
         }
 
@@ -2547,10 +2134,7 @@
                 if (!input.value.trim() && input.type !== 'checkbox' && input.type !== 'radio') {
                     input.style.borderColor = 'var(--danger-color)';
                     valido = false;
-                    if (!valido) {
-                        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        input.focus();
-                    }
+                    if (!valido) { input.scrollIntoView({ behavior: 'smooth', block: 'center' }); input.focus(); }
                 } else if (input.type === 'number' && input.value < 0) {
                     input.style.borderColor = 'var(--danger-color)';
                     valido = false;
@@ -2565,8 +2149,7 @@
         function validarCampo(input) {
             const valor = input.value.trim();
             if (input.hasAttribute('required') && !valor && input.type !== 'checkbox' && input.type !== 'radio') {
-                input.style.borderColor = 'var(--danger-color)';
-                return false;
+                input.style.borderColor = 'var(--danger-color)'; return false;
             }
             if (input.type === 'email' && valor) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
